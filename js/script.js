@@ -127,6 +127,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---- Custom select (formulario contacto) ---- */
+  const customSelects = document.querySelectorAll('.custom-select');
+  customSelects.forEach(wrapper => {
+    const trigger = wrapper.querySelector('.custom-select-trigger');
+    const dropdown = wrapper.querySelector('.custom-select-dropdown');
+    const options = wrapper.querySelectorAll('.custom-select-option');
+    const form = wrapper.closest('form');
+    const input = form ? form.querySelector('input[name="asunto"]') : null;
+
+    if (!trigger || !dropdown || !options.length) return;
+
+    const open = () => {
+      wrapper.classList.add('is-open');
+      trigger.setAttribute('aria-expanded', 'true');
+      dropdown.setAttribute('aria-hidden', 'false');
+    };
+    const close = () => {
+      wrapper.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded', 'false');
+      dropdown.setAttribute('aria-hidden', 'true');
+    };
+    const setValue = (value, label) => {
+      trigger.querySelector('.custom-select-value').textContent = label || 'Selecciona un asunto';
+      options.forEach(opt => opt.classList.toggle('is-selected', opt.dataset.value === value));
+      if (input) {
+        input.value = value;
+        input.setAttribute('value', value);
+      }
+    };
+
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isOpen = wrapper.classList.toggle('is-open');
+      trigger.setAttribute('aria-expanded', isOpen);
+      dropdown.setAttribute('aria-hidden', !isOpen);
+    });
+
+    options.forEach(opt => {
+      opt.addEventListener('click', (e) => {
+        e.preventDefault();
+        setValue(opt.dataset.value, opt.dataset.label);
+        close();
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (wrapper.classList.contains('is-open') && !wrapper.contains(e.target)) close();
+    });
+
+    dropdown.setAttribute('aria-hidden', 'true');
+  });
+
   /* ---- Contact form (contacto.html) ---- */
   const form      = document.getElementById('contact-form');
   const success   = document.getElementById('form-success');
@@ -134,17 +186,25 @@ document.addEventListener('DOMContentLoaded', () => {
   if (form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      const required = form.querySelectorAll('[required]');
+      const required = form.querySelectorAll('input[required], select[required], textarea[required]');
+      const customAsunto = form.querySelector('.custom-select[id="custom-asunto"]');
+      const asuntoInput = form.querySelector('input[name="asunto"]');
       let valid = true;
 
       required.forEach(field => {
-        field.style.borderColor = '';
-        const empty = field.type === 'checkbox' ? !field.checked : !field.value.trim();
+        if (field.style) field.style.borderColor = '';
+        const empty = field.type === 'checkbox' ? !field.checked : !String(field.value || '').trim();
         if (empty) {
-          field.style.borderColor = '#e53e3e';
+          if (field.style) field.style.borderColor = '#e53e3e';
           valid = false;
         }
       });
+      if (customAsunto && asuntoInput && !asuntoInput.value.trim()) {
+        valid = false;
+        customAsunto.querySelector('.custom-select-trigger').style.borderColor = '#e53e3e';
+      } else if (customAsunto) {
+        customAsunto.querySelector('.custom-select-trigger').style.borderColor = '';
+      }
 
       if (!valid) return;
 

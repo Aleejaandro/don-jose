@@ -1583,6 +1583,7 @@ ul { list-style: none; }
   outline: none;
   appearance: none;
   -webkit-appearance: none;
+  -moz-appearance: none;
 }
 .form-input:focus {
   border-color: var(--color-primary);
@@ -1591,12 +1592,102 @@ ul { list-style: none; }
 }
 .form-input::placeholder { color: var(--color-muted); }
 .form-textarea { resize: vertical; min-height: 130px; }
-.form-select {
+/* Select nativo: sin estilo del navegador, flecha SVG personalizada */
+.form-select,
+select.form-input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7c6e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
   padding-right: 2.5rem;
   cursor: pointer;
+}
+
+/* Desplegable personalizado (formulario contacto) */
+.custom-select {
+  position: relative;
+  width: 100%;
+}
+.custom-select-trigger {
+  width: 100%;
+  padding: 0.8rem 2.5rem 0.8rem 1rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7c6e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+.custom-select-trigger:hover {
+  border-color: var(--color-primary-lt);
+}
+.custom-select.is-open .custom-select-trigger {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(74,124,89,0.12);
+  background: var(--color-white);
+}
+.custom-select-trigger[aria-expanded="true"] + .custom-select-dropdown,
+.custom-select.is-open .custom-select-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.custom-select-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 4px;
+  padding: 0.5rem;
+  background: var(--color-white);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  z-index: 50;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity var(--transition), visibility var(--transition), transform var(--transition);
+  max-height: 240px;
+  overflow-y: auto;
+}
+.custom-select-option {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+.custom-select-option:hover {
+  background: rgba(74, 124, 89, 0.08);
+  color: var(--color-primary-dk);
+}
+.custom-select-option.is-selected {
+  background: rgba(74, 124, 89, 0.15);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+.custom-select-option.is-selected:hover {
+  background: rgba(74, 124, 89, 0.22);
 }
 .form-check {
   display: flex;

@@ -83,15 +83,21 @@
             <input type="tel" id="telefono" name="telefono" class="form-input" placeholder="+34 600 000 000" autocomplete="tel">
           </div>
           <div class="form-group">
-            <label for="asunto" class="form-label">Asunto *</label>
-            <select id="asunto" name="asunto" class="form-input form-select" required>
-              <option value="">Selecciona un asunto</option>
-              <option value="distribucion">Consulta de distribución</option>
-              <option value="producto">Información sobre productos</option>
-              <option value="comercial">Consulta comercial</option>
-              <option value="prensa">Prensa y medios</option>
-              <option value="otro">Otro</option>
-            </select>
+            <label for="custom-asunto-trigger" class="form-label" id="custom-asunto-label">Asunto *</label>
+            <input type="hidden" name="asunto" id="asunto" value="" required>
+            <div class="custom-select" id="custom-asunto" data-required="true">
+              <button type="button" class="custom-select-trigger" id="custom-asunto-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="custom-asunto-label">
+                <span class="custom-select-value">Selecciona un asunto</span>
+              </button>
+              <div class="custom-select-dropdown" role="listbox" id="custom-asunto-listbox" aria-label="Asunto">
+                <div class="custom-select-option" role="option" data-value="" data-label="Selecciona un asunto">Selecciona un asunto</div>
+                <div class="custom-select-option" role="option" data-value="distribucion" data-label="Consulta de distribución">Consulta de distribución</div>
+                <div class="custom-select-option" role="option" data-value="producto" data-label="Información sobre productos">Información sobre productos</div>
+                <div class="custom-select-option" role="option" data-value="comercial" data-label="Consulta comercial">Consulta comercial</div>
+                <div class="custom-select-option" role="option" data-value="prensa" data-label="Prensa y medios">Prensa y medios</div>
+                <div class="custom-select-option" role="option" data-value="otro" data-label="Otro">Otro</div>
+              </div>
+            </div>
           </div>
           <div class="form-group">
             <label for="mensaje" class="form-label">Mensaje *</label>
