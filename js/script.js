@@ -180,17 +180,35 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ---- Contact form (contacto.html) ---- */
-  const form      = document.getElementById('contact-form');
-  const success   = document.getElementById('form-success');
-  const submitBtn = document.getElementById('submit-btn');
+  const form       = document.getElementById('contact-form');
+  const successEl  = document.getElementById('form-success');
+  const errorEl    = document.getElementById('form-error');
+  const errorText  = document.getElementById('form-error-text');
+  const submitBtn  = document.getElementById('submit-btn');
+
+  // Mensajes tras redirección (envío sin JS o fallback)
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('enviado') === '1' && form && successEl) {
+    form.style.display = 'none';
+    successEl.style.display = 'flex';
+    window.history.replaceState({}, '', window.location.pathname);
+  }
+  if (urlParams.get('error') === '1' && form && errorEl && errorText) {
+    errorEl.style.display = 'flex';
+    errorText.textContent = 'No se pudo enviar el mensaje. Inténtalo de nuevo o escríbenos a info@donjose.es.';
+    window.history.replaceState({}, '', window.location.pathname);
+  }
+
   if (form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
+
       const required = form.querySelectorAll('input[required], select[required], textarea[required]');
       const customAsunto = form.querySelector('.custom-select[id="custom-asunto"]');
       const asuntoInput = form.querySelector('input[name="asunto"]');
       let valid = true;
 
+      if (errorEl) errorEl.style.display = 'none';
       required.forEach(field => {
         if (field.style) field.style.borderColor = '';
         const empty = field.type === 'checkbox' ? !field.checked : !String(field.value || '').trim();
@@ -210,10 +228,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
       submitBtn.disabled = true;
       submitBtn.textContent = 'Enviando…';
-      setTimeout(() => {
-        form.style.display = 'none';
-        if (success) success.style.display = 'flex';
-      }, 900);
+
+      const action = form.getAttribute('action') || 'php/procesar-formulario.php';
+      const formData = new FormData(form);
+
+      fetch(action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+      })
+        .then(res => res.json().catch(() => ({})))
+        .then(data => {
+          if (data && data.success) {
+            form.style.display = 'none';
+            if (successEl) successEl.style.display = 'flex';
+          } else {
+            if (errorEl && errorText) {
+              errorText.textContent = (data && data.message) ? data.message : 'Error al enviar. Inténtalo de nuevo.';
+              errorEl.style.display = 'flex';
+            }
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Enviar mensaje';
+          }
+        })
+        .catch(() => {
+          if (errorEl && errorText) {
+            errorText.textContent = 'Error de conexión. Inténtalo de nuevo o escríbenos a info@donjose.es.';
+            errorEl.style.display = 'flex';
+          }
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Enviar mensaje';
+        });
     });
 
     form.addEventListener('input', e => {

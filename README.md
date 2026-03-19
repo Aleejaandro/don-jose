@@ -23,6 +23,7 @@ Luego abre en el navegador: `http://localhost:3000` (serve) o `http://localhost:
 - `index.html` — Inicio
 - `marca.html`, `productos.html`, `recetas.html`, `contacto.html` — Secciones
 - `productos/*.html` — Fichas de producto
+- `recetas/*.html` — Páginas de cada receta (enlazadas desde recetas.html)
 - `legal/` — Aviso legal, privacidad, cookies
 - `css/styles.css` — Estilos
 - `js/script.js` — Lógica
@@ -30,3 +31,4 @@ Luego abre en el navegador: `http://localhost:3000` (serve) o `http://localhost:
 - `assets/img/home/` — Imágenes de la home (hero, lifestyle)
 - `assets/img/productos/` — Imágenes de productos
 - `assets/img/recetas/` — Imágenes de recetas
+- `php/` — Backend del formulario de contacto (PHP + PHPMailer + SMTP). Ver **FORMULARIOS-HOSTALIA.md** para configuración en Hostalia.

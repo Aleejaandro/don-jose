@@ -63,7 +63,12 @@
         <h2 class="section-title" style="font-size:1.75rem;margin-bottom:0.5rem;">Envíanos un mensaje</h2>
         <p style="color:var(--color-muted);font-size:0.95rem;margin-bottom:2rem;">Responderemos en menos de 24 horas en días laborables.</p>
 
-        <form class="contact-form" id="contact-form" novalidate>
+        <form class="contact-form" id="contact-form" method="post" action="php/procesar-formulario.php" novalidate>
+          <!-- Honeypot anti-spam: no rellenar (oculto para usuarios) -->
+          <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+            <label for="web_site">Dejar en blanco</label>
+            <input type="text" name="web_site" id="web_site" tabindex="-1" autocomplete="off">
+          </div>
           <div class="form-row">
             <div class="form-group">
               <label for="nombre" class="form-label">Nombre *</label>
@@ -105,11 +110,14 @@
           </div>
           <div class="form-check">
             <input type="checkbox" id="privacidad" name="privacidad" required>
-            <label for="privacidad">He leído y acepto la <a href="#">Política de Privacidad</a>.</label>
+            <label for="privacidad">He leído y acepto la <a href="legal/privacidad.html">Política de Privacidad</a>.</label>
           </div>
           <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;" id="submit-btn">
             Enviar mensaje
           </button>
+          <div class="form-error" id="form-error" style="display:none;" role="alert">
+            <span id="form-error-text"></span>
+          </div>
           <div class="form-success" id="form-success" style="display:none;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
             <span>¡Mensaje enviado! Te responderemos pronto.</span>
@@ -125,7 +133,7 @@
           </div>
           <div>
             <h4>Teléfono</h4>
-            <a href="tel:+34900000000">+34 900 000 000</a>
+            <a href="tel:+34925679180">+34 925 679 180</a>
             <p>Lunes a viernes, 9:00 – 18:00</p>
           </div>
         </div>
@@ -145,7 +153,7 @@
           </div>
           <div>
             <h4>Dirección</h4>
-            <p>Santa Cruz de la Zarza<br>Toledo, 45370, España</p>
+            <p>Avda. Castilla la Mancha 12<br>Santa Cruz de la Zarza (Toledo), 45370, España</p>
           </div>
         </div>
 
@@ -153,7 +161,7 @@
         <div class="distrib-box">
           <h4>¿Eres distribuidor?</h4>
           <p>Si estás interesado en distribuir nuestros productos, escríbenos indicando tu zona de cobertura y volumen habitual. Estaremos encantados de estudiar tu propuesta.</p>
-          <a href="mailto:comercial@donjoselimen.es" class="btn btn-outline btn-sm" style="margin-top:1rem;">comercial@donjose.es</a>
+          <a href="mailto:info@donjose.es" class="btn btn-outline btn-sm" style="margin-top:1rem;">info@donjose.es</a>
         </div>
 
         <!-- Redes -->
@@ -184,7 +192,7 @@
       </div>
       <div class="footer-col"><h4 class="footer-heading">Explorar</h4><ul class="footer-links"><li><a href="marca.html">La Marca</a></li><li><a href="productos.html">Productos</a></li><li><a href="recetas.html">Recetas</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
       <div class="footer-col"><h4 class="footer-heading">Legal</h4><ul class="footer-links"><li><a href="legal/aviso-legal.html">Aviso Legal</a></li><li><a href="legal/privacidad.html">Política de Privacidad</a></li><li><a href="legal/cookies.html">Política de Cookies</a></li></ul></div>
-      <div class="footer-col"><h4 class="footer-heading">Contacto</h4><ul class="footer-links footer-contact"><li>info@donjose.es</li><li>+34 900 000 000</li><li>Santa Cruz de la Zarza<br>Toledo, 45370, España</li></ul></div>
+      <div class="footer-col"><h4 class="footer-heading">Contacto</h4><ul class="footer-links footer-contact"><li>info@donjose.es</li><li>+34 925 679 180</li><li>Avda. Castilla la Mancha 12<br>Santa Cruz de la Zarza (Toledo), 45370, España</li></ul></div>
     </div>
     <div class="footer-bottom"><div class="container footer-bottom-inner"><p>© <span class="footer-year"></span> Productos Don José. Todos los derechos reservados.</p><p>Diseñado para la tierra y la mesa.</p></div></div>
   </footer>
