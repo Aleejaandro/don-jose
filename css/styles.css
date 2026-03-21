@@ -694,6 +694,67 @@ ul { list-style: none; }
 .social-links { display: flex; gap: 1rem; }
 .social-link { color: var(--color-muted); transition: color var(--transition); }
 .social-link:hover { color: var(--color-primary); }
+
+/* Etiqueta de marca (escudo + texto), debajo de redes en el footer */
+.footer-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 5px 12px;
+  border: 1px solid rgba(30, 45, 36, 0.16);
+  border-radius: 9px;
+  background: rgba(74, 124, 89, 0.07);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: rgba(30, 45, 36, 0.7);
+  line-height: 1.25;
+  max-width: 100%;
+}
+.footer-brand-badge__icon {
+  flex-shrink: 0;
+  color: rgba(74, 124, 89, 0.9);
+}
+.footer-brand-badge__text {
+  color: inherit;
+}
+
+/* Enlaces a webs del grupo (Dmondo, ABM Crops) — href # hasta definir dominio */
+.footer-partner-links {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  font-size: 0.8125rem;
+}
+.footer-partner-link {
+  color: var(--color-muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--transition);
+}
+.footer-partner-link:hover { color: var(--color-primary); }
+.footer-partner-sep {
+  color: var(--color-muted);
+  opacity: 0.4;
+  user-select: none;
+}
+
+/* Spinner de carga en botón de formulario */
+.btn-spinner {
+  display: inline-block;
+  vertical-align: middle;
+  animation: spin 0.6s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.btn.is-loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
 .footer-heading {
   font-size: 0.875rem;
   font-weight: 700;
@@ -1558,6 +1619,48 @@ ul { list-style: none; }
   font-size: 1rem;
 }
 
+/* Próximas recetas (recetas.html) — misma card, contenido mínimo */
+.recipe-upcoming-section {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--color-border);
+}
+.recipe-upcoming-intro {
+  max-width: 36rem;
+  margin: 0 auto 2rem;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+.recipes-full-grid--upcoming {
+  margin-top: 0;
+}
+.rcp-time-pill--soon {
+  background: rgba(74, 124, 89, 0.12);
+  color: var(--color-primary);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.rcp-panel-desc--minimal {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.btn-recipe--soon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.72;
+  border-style: dashed;
+}
+.recipe-card-photo--upcoming .rcp-panel-meta {
+  display: none;
+}
+
 /* ============================================================
    CONTACT PAGE
    ============================================================ */
@@ -1731,6 +1834,20 @@ select.form-input {
   font-weight: 600;
   margin-top: 0.5rem;
   border: 1px solid rgba(185, 28, 28, 0.3);
+}
+.form-field-error {
+  display: block;
+  color: #b91c1c;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 0.35rem;
+  padding-left: 0.25rem;
+}
+.form-field-error:empty {
+  display: none;
+}
+.form-input.is-invalid + .form-field-error {
+  display: block;
 }
 
 /* Contact info */
@@ -2189,4 +2306,36 @@ select.form-input {
   /* On touch: always show panel content */
   .recipe-card-photo .rcp-panel { transform: translateY(0); }
   .recipe-card-photo .rcp-base { opacity: 0; }
+}
+
+/* ============================================================
+   ACCESIBILIDAD — Prefers Reduced Motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   ACCESIBILIDAD — Focus Visible (solo teclado)
+   ============================================================ */
+*:focus {
+  outline: none;
+}
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }

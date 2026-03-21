@@ -1,0 +1,10 @@
+# robots.txt — Productos Don José
+# Si cambias de dominio, actualiza la línea Sitemap.
+
+User-agent: *
+Allow: /
+
+# No indexar dependencias del backend (si existen en el servidor)
+Disallow: /php/vendor/
+
+Sitemap: https://www.productosdonjose.es/sitemap.xml

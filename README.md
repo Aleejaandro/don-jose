@@ -31,4 +31,8 @@ Luego abre en el navegador: `http://localhost:3000` (serve) o `http://localhost:
 - `assets/img/home/` — Imágenes de la home (hero, lifestyle)
 - `assets/img/productos/` — Imágenes de productos
 - `assets/img/recetas/` — Imágenes de recetas
-- `php/` — Backend del formulario de contacto (PHP + PHPMailer + SMTP). Ver **FORMULARIOS-HOSTALIA.md** para configuración en Hostalia.
+- `send-contact.php`, `send-contact-config.php` — Formulario de contacto (misma convención que otras webs del cliente). `js/site-config.js` → `ABM_SITE.formAction`. Ver **FORMULARIOS-HOSTALIA.md**.
+- `php/` — PHPMailer (`composer install` en `php/` o `php/lib/phpmailer`).
+- `sitemap.xml` — Mapa del sitio para buscadores (URLs absolutas; si cambias de dominio, edita la base).
+- `robots.txt` — Indica a los robots qué rastrear y la URL del sitemap.
+- `.htaccess` — Reglas Apache (UTF-8, caché, sin listado de directorios; opción HTTPS comentada).

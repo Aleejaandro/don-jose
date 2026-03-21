@@ -1,15 +1,22 @@
 <?php
 /**
- * Procesador del formulario de contacto — Don José
- * Recibe POST, valida, sanea y envía por SMTP (PHPMailer).
- * Respuesta: JSON si petición Ajax, redirección si envío tradicional.
+ * Envío formulario de contacto — Productos Don José
+ * POST (Ajax JSON o redirección). PHPMailer + SMTP.
  */
 
 declare(strict_types=1);
 
-// Cargar configuración y autoload de PHPMailer
-require __DIR__ . '/config.php';
-require __DIR__ . '/vendor/autoload.php';
+define('DMONDO_CONTACT', true);
+require __DIR__ . '/send-contact-config.php';
+
+$autoload = __DIR__ . '/php/vendor/autoload.php';
+if (is_file($autoload)) {
+    require $autoload;
+} else {
+    require_once __DIR__ . '/php/lib/phpmailer/src/Exception.php';
+    require_once __DIR__ . '/php/lib/phpmailer/src/PHPMailer.php';
+    require_once __DIR__ . '/php/lib/phpmailer/src/SMTP.php';
+}
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception as PHPMailerException;
@@ -22,9 +29,6 @@ const ASUNTO_LABELS = [
     'otro'         => 'Otro',
 ];
 
-/**
- * Envía respuesta JSON y termina.
- */
 function sendJson(array $data): void
 {
     header('Content-Type: application/json; charset=utf-8');
@@ -32,9 +36,6 @@ function sendJson(array $data): void
     exit;
 }
 
-/**
- * Redirige a la página de contacto con parámetro de estado.
- */
 function redirect(string $page, string $param, string $value): void
 {
     $url = $page . '?' . $param . '=' . rawurlencode($value);
@@ -45,35 +46,31 @@ function redirect(string $page, string $param, string $value): void
 $isAjax = !empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
     strtolower((string) $_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
 
-// Solo aceptar POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     if ($isAjax) {
         sendJson(['success' => false, 'message' => 'Método no permitido.']);
     }
-    redirect('../contacto.html', 'error', '1');
+    redirect('contacto.html', 'error', '1');
     exit;
 }
 
-// ——— Envío vacío (bot o petición directa) ———
 if (trim((string) ($_POST['nombre'] ?? '')) === '' && trim((string) ($_POST['email'] ?? '')) === '' && trim((string) ($_POST['mensaje'] ?? '')) === '') {
     if ($isAjax) {
         sendJson(['success' => false, 'message' => 'Datos insuficientes.']);
     }
-    redirect('../contacto.html', 'error', '1');
+    redirect('contacto.html', 'error', '1');
     exit;
 }
 
-// ——— Honeypot anti-spam: si el campo oculto viene rellenado, es bot ———
 $honeypot = trim((string) ($_POST['web_site'] ?? ''));
 if ($honeypot !== '') {
     if ($isAjax) {
-        sendJson(['success' => true, 'message' => 'Mensaje recibido.']); // Engañar al bot
+        sendJson(['success' => true, 'message' => 'Mensaje recibido.']);
     }
-    redirect('../contacto.html', 'enviado', '1');
+    redirect('contacto.html', 'enviado', '1');
     exit;
 }
 
-// ——— Recoger y sanear datos ———
 $nombre    = trim((string) ($_POST['nombre'] ?? ''));
 $apellidos = trim((string) ($_POST['apellidos'] ?? ''));
 $email     = trim((string) ($_POST['email'] ?? ''));
@@ -82,15 +79,15 @@ $asunto    = trim((string) ($_POST['asunto'] ?? ''));
 $mensaje   = trim((string) ($_POST['mensaje'] ?? ''));
 $privacidad = isset($_POST['privacidad']) && $_POST['privacidad'] !== '';
 
-// Saneamiento básico
 $nombre    = mb_substr(preg_replace('/[^\p{L}\p{N}\s\-]/u', '', $nombre), 0, 100);
 $apellidos = mb_substr(preg_replace('/[^\p{L}\p{N}\s\-]/u', '', $apellidos), 0, 150);
 $email     = filter_var($email, FILTER_SANITIZE_EMAIL);
 $telefono  = mb_substr(preg_replace('/[^0-9+\s\-()]/', '', $telefono), 0, 30);
 $asunto    = isset(ASUNTO_LABELS[$asunto]) ? $asunto : '';
+$mensaje   = strip_tags($mensaje);
 $mensaje   = mb_substr($mensaje, 0, 5000);
+$mensaje   = htmlspecialchars($mensaje, ENT_QUOTES, 'UTF-8');
 
-// ——— Validación ———
 $errors = [];
 
 if ($nombre === '') {
@@ -116,11 +113,10 @@ if (count($errors) > 0) {
     if ($isAjax) {
         sendJson(['success' => false, 'message' => $message]);
     }
-    redirect('../contacto.html', 'error', '1');
+    redirect('contacto.html', 'error', '1');
     exit;
 }
 
-// ——— Enviar email con PHPMailer ———
 $mail = new PHPMailer(true);
 try {
     $mail->CharSet    = 'UTF-8';
@@ -159,11 +155,11 @@ try {
     if ($isAjax) {
         sendJson(['success' => false, 'message' => 'Error al enviar. Inténtalo más tarde.']);
     }
-    redirect('../contacto.html', 'error', '1');
+    redirect('contacto.html', 'error', '1');
     exit;
 }
 
 if ($isAjax) {
     sendJson(['success' => true, 'message' => 'Mensaje enviado correctamente.']);
 }
-redirect('../contacto.html', 'enviado', '1');
+redirect('contacto.html', 'enviado', '1');

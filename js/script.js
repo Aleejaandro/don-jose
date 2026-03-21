@@ -10,6 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
     el.textContent = new Date().getFullYear();
   });
 
+  /* ---- Footer: enlaces grupo sin URL definitiva (evita salto al #) ---- */
+  document.querySelectorAll('a.footer-partner-link--pending').forEach(a => {
+    a.addEventListener('click', e => e.preventDefault());
+  });
+
   /* ---- Navbar: scroll effect ---- */
   const header = document.getElementById('site-header');
   if (header) {
@@ -181,6 +186,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---- Contact form (contacto.html) ---- */
   const form       = document.getElementById('contact-form');
+  if (form && window.ABM_SITE && window.ABM_SITE.formAction) {
+    form.setAttribute('action', window.ABM_SITE.formAction);
+  }
   const successEl  = document.getElementById('form-success');
   const errorEl    = document.getElementById('form-error');
   const errorText  = document.getElementById('form-error-text');
@@ -195,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (urlParams.get('error') === '1' && form && errorEl && errorText) {
     errorEl.style.display = 'flex';
-    errorText.textContent = 'No se pudo enviar el mensaje. Inténtalo de nuevo o escríbenos a info@donjose.es.';
+    errorText.textContent = 'No se pudo enviar el mensaje. Inténtalo de nuevo o escríbenos a info@productosdonjose.es.';
     window.history.replaceState({}, '', window.location.pathname);
   }
 
@@ -209,27 +217,73 @@ document.addEventListener('DOMContentLoaded', () => {
       let valid = true;
 
       if (errorEl) errorEl.style.display = 'none';
+      // Limpiar errores previos
+      form.querySelectorAll('.form-field-error').forEach(err => {
+        err.textContent = '';
+        err.style.display = 'none';
+      });
+      form.querySelectorAll('.form-input, .custom-select-trigger').forEach(el => {
+        if (el.style) el.style.borderColor = '';
+        el.classList.remove('is-invalid');
+      });
+
       required.forEach(field => {
-        if (field.style) field.style.borderColor = '';
         const empty = field.type === 'checkbox' ? !field.checked : !String(field.value || '').trim();
         if (empty) {
-          if (field.style) field.style.borderColor = '#e53e3e';
+          if (field.style) {
+            field.style.borderColor = '#e53e3e';
+            field.classList.add('is-invalid');
+          }
+          const errorId = field.getAttribute('aria-describedby');
+          if (errorId) {
+            const errorEl = document.getElementById(errorId);
+            if (errorEl) {
+              errorEl.textContent = 'Este campo es obligatorio';
+              errorEl.style.display = 'block';
+            }
+          }
           valid = false;
         }
       });
       if (customAsunto && asuntoInput && !asuntoInput.value.trim()) {
         valid = false;
-        customAsunto.querySelector('.custom-select-trigger').style.borderColor = '#e53e3e';
+        const trigger = customAsunto.querySelector('.custom-select-trigger');
+        if (trigger) {
+          trigger.style.borderColor = '#e53e3e';
+          trigger.classList.add('is-invalid');
+        }
+        const errorId = trigger ? trigger.getAttribute('aria-describedby') : 'asunto-error';
+        if (errorId) {
+          const errorEl = document.getElementById(errorId);
+          if (errorEl) {
+            errorEl.textContent = 'Este campo es obligatorio';
+            errorEl.style.display = 'block';
+          }
+        }
       } else if (customAsunto) {
-        customAsunto.querySelector('.custom-select-trigger').style.borderColor = '';
+        const trigger = customAsunto.querySelector('.custom-select-trigger');
+        if (trigger) {
+          trigger.style.borderColor = '';
+          trigger.classList.remove('is-invalid');
+        }
+        const errorId = trigger ? trigger.getAttribute('aria-describedby') : 'asunto-error';
+        if (errorId) {
+          const errorEl = document.getElementById(errorId);
+          if (errorEl) {
+            errorEl.textContent = '';
+            errorEl.style.display = 'none';
+          }
+        }
       }
 
       if (!valid) return;
 
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Enviando…';
+      submitBtn.classList.add('is-loading');
+      const originalText = submitBtn.textContent;
+      submitBtn.innerHTML = '<svg class="btn-spinner" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Enviando…';
 
-      const action = form.getAttribute('action') || 'php/procesar-formulario.php';
+      const action = form.getAttribute('action') || (window.ABM_SITE && window.ABM_SITE.formAction) || 'send-contact.php';
       const formData = new FormData(form);
 
       fetch(action, {
@@ -248,21 +302,34 @@ document.addEventListener('DOMContentLoaded', () => {
               errorEl.style.display = 'flex';
             }
             submitBtn.disabled = false;
+            submitBtn.classList.remove('is-loading');
             submitBtn.textContent = 'Enviar mensaje';
           }
         })
         .catch(() => {
           if (errorEl && errorText) {
-            errorText.textContent = 'Error de conexión. Inténtalo de nuevo o escríbenos a info@donjose.es.';
+            errorText.textContent = 'Error de conexión. Inténtalo de nuevo o escríbenos a info@productosdonjose.es.';
             errorEl.style.display = 'flex';
           }
           submitBtn.disabled = false;
+          submitBtn.classList.remove('is-loading');
           submitBtn.textContent = 'Enviar mensaje';
         });
     });
 
     form.addEventListener('input', e => {
-      if (e.target.style) e.target.style.borderColor = '';
+      if (e.target.style) {
+        e.target.style.borderColor = '';
+        e.target.classList.remove('is-invalid');
+      }
+      const errorId = e.target.getAttribute('aria-describedby');
+      if (errorId) {
+        const errorEl = document.getElementById(errorId);
+        if (errorEl) {
+          errorEl.textContent = '';
+          errorEl.style.display = 'none';
+        }
+      }
     });
   }
 

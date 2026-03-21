@@ -4,12 +4,22 @@
   <meta charset="UTF-8" />
   <link rel="icon" href="assets/logos/favicon-donjose-full.ico" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contacta con Productos Don José. Estamos en León, España. Consultas comerciales, distribución y atención al consumidor. info@donjoselimen.es" />
+  <meta name="description" content="Contacta con Productos Don José. Consultas comerciales, distribución y atención al consumidor. info@productosdonjose.es" />
   <title>Contacto | Productos Don José</title>
   <meta property="og:title" content="Contacto — Productos Don José" />
   <meta property="og:description" content="Contacta con nosotros para consultas, distribución o cualquier información sobre nuestros productos." />
   <meta property="og:type" content="website" />
-  <link rel="canonical" href="contacto.html" />
+  <meta property="og:url" content="https://www.productosdonjose.es/contacto.html" />
+  <meta property="og:image" content="https://www.productosdonjose.es/assets/logos/logo-don-jose.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Productos Don José — Logo" />
+  <meta property="og:locale" content="es_ES" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contacto — Productos Don José" />
+  <meta name="twitter:description" content="Contacta con nosotros para consultas, distribución o cualquier información sobre nuestros productos." />
+  <meta name="twitter:image" content="https://www.productosdonjose.es/assets/logos/logo-don-jose.png" />
+  <link rel="canonical" href="https://www.productosdonjose.es/contacto.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -63,7 +73,7 @@
         <h2 class="section-title" style="font-size:1.75rem;margin-bottom:0.5rem;">Envíanos un mensaje</h2>
         <p style="color:var(--color-muted);font-size:0.95rem;margin-bottom:2rem;">Responderemos en menos de 24 horas en días laborables.</p>
 
-        <form class="contact-form" id="contact-form" method="post" action="php/procesar-formulario.php" novalidate>
+        <form class="contact-form" id="contact-form" method="post" action="send-contact.php" novalidate>
           <!-- Honeypot anti-spam: no rellenar (oculto para usuarios) -->
           <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
             <label for="web_site">Dejar en blanco</label>
@@ -72,26 +82,30 @@
           <div class="form-row">
             <div class="form-group">
               <label for="nombre" class="form-label">Nombre *</label>
-              <input type="text" id="nombre" name="nombre" class="form-input" placeholder="Tu nombre" required autocomplete="given-name">
+              <input type="text" id="nombre" name="nombre" class="form-input" placeholder="Tu nombre" required autocomplete="given-name" aria-describedby="nombre-error">
+              <span id="nombre-error" class="form-field-error" role="alert" aria-live="polite" style="display:none;"></span>
             </div>
             <div class="form-group">
               <label for="apellidos" class="form-label">Apellidos</label>
-              <input type="text" id="apellidos" name="apellidos" class="form-input" placeholder="Tus apellidos" autocomplete="family-name">
+              <input type="text" id="apellidos" name="apellidos" class="form-input" placeholder="Tus apellidos" autocomplete="family-name" aria-describedby="apellidos-error">
+              <span id="apellidos-error" class="form-field-error" role="alert" aria-live="polite" style="display:none;"></span>
             </div>
           </div>
           <div class="form-group">
             <label for="email" class="form-label">Email *</label>
-            <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required autocomplete="email">
+            <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required autocomplete="email" aria-describedby="email-error">
+            <span id="email-error" class="form-field-error" role="alert" aria-live="polite" style="display:none;"></span>
           </div>
           <div class="form-group">
             <label for="telefono" class="form-label">Teléfono</label>
-            <input type="tel" id="telefono" name="telefono" class="form-input" placeholder="+34 600 000 000" autocomplete="tel">
+            <input type="tel" id="telefono" name="telefono" class="form-input" placeholder="+34 600 000 000" autocomplete="tel" aria-describedby="telefono-error">
+            <span id="telefono-error" class="form-field-error" role="alert" aria-live="polite" style="display:none;"></span>
           </div>
           <div class="form-group">
             <label for="custom-asunto-trigger" class="form-label" id="custom-asunto-label">Asunto *</label>
-            <input type="hidden" name="asunto" id="asunto" value="" required>
+            <input type="hidden" name="asunto" id="asunto" value="" required aria-describedby="asunto-error">
             <div class="custom-select" id="custom-asunto" data-required="true">
-              <button type="button" class="custom-select-trigger" id="custom-asunto-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="custom-asunto-label">
+              <button type="button" class="custom-select-trigger" id="custom-asunto-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="custom-asunto-label" aria-describedby="asunto-error">
                 <span class="custom-select-value">Selecciona un asunto</span>
               </button>
               <div class="custom-select-dropdown" role="listbox" id="custom-asunto-listbox" aria-label="Asunto">
@@ -103,10 +117,12 @@
                 <div class="custom-select-option" role="option" data-value="otro" data-label="Otro">Otro</div>
               </div>
             </div>
+            <span id="asunto-error" class="form-field-error" role="alert" aria-live="polite" style="display:none;"></span>
           </div>
           <div class="form-group">
             <label for="mensaje" class="form-label">Mensaje *</label>
-            <textarea id="mensaje" name="mensaje" class="form-input form-textarea" placeholder="Cuéntanos en qué podemos ayudarte..." required rows="5"></textarea>
+            <textarea id="mensaje" name="mensaje" class="form-input form-textarea" placeholder="Cuéntanos en qué podemos ayudarte..." required rows="5" aria-describedby="mensaje-error"></textarea>
+            <span id="mensaje-error" class="form-field-error" role="alert" aria-live="polite" style="display:none;"></span>
           </div>
           <div class="form-check">
             <input type="checkbox" id="privacidad" name="privacidad" required>
@@ -143,7 +159,7 @@
           </div>
           <div>
             <h4>Email</h4>
-            <a href="mailto:info@donjose.es">info@donjose.es</a>
+            <a href="mailto:info@productosdonjose.es">info@productosdonjose.es</a>
             <p>Respuesta en menos de 24 h</p>
           </div>
         </div>
@@ -161,7 +177,7 @@
         <div class="distrib-box">
           <h4>¿Eres distribuidor?</h4>
           <p>Si estás interesado en distribuir nuestros productos, escríbenos indicando tu zona de cobertura y volumen habitual. Estaremos encantados de estudiar tu propuesta.</p>
-          <a href="mailto:info@donjose.es" class="btn btn-outline btn-sm" style="margin-top:1rem;">info@donjose.es</a>
+          <a href="mailto:info@productosdonjose.es" class="btn btn-outline btn-sm" style="margin-top:1rem;">info@productosdonjose.es</a>
         </div>
 
         <!-- Redes -->
@@ -189,14 +205,24 @@
           <a href="#" class="social-link" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
           <a href="#" class="social-link" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
         </div>
+        <div class="footer-brand-badge" role="group" aria-label="Productos Don José, marca ABM Crops">
+          <svg class="footer-brand-badge__icon" width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="footer-brand-badge__text">Productos Don José — marca ABM Crops</span>
+        </div>
+        <nav class="footer-partner-links" aria-label="Webs del grupo">
+          <a href="#" class="footer-partner-link footer-partner-link--pending" title="Web en preparación — dominio por definir">Dmondo</a>
+          <span class="footer-partner-sep" aria-hidden="true">·</span>
+          <a href="#" class="footer-partner-link footer-partner-link--pending" title="Web en preparación — dominio por definir">ABM Crops</a>
+        </nav>
       </div>
       <div class="footer-col"><h4 class="footer-heading">Explorar</h4><ul class="footer-links"><li><a href="marca.html">La Marca</a></li><li><a href="productos.html">Productos</a></li><li><a href="recetas.html">Recetas</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
       <div class="footer-col"><h4 class="footer-heading">Legal</h4><ul class="footer-links"><li><a href="legal/aviso-legal.html">Aviso Legal</a></li><li><a href="legal/privacidad.html">Política de Privacidad</a></li><li><a href="legal/cookies.html">Política de Cookies</a></li></ul></div>
-      <div class="footer-col"><h4 class="footer-heading">Contacto</h4><ul class="footer-links footer-contact"><li>info@donjose.es</li><li>+34 925 679 180</li><li>Avda. Castilla la Mancha 12<br>Santa Cruz de la Zarza (Toledo), 45370, España</li></ul></div>
+      <div class="footer-col"><h4 class="footer-heading">Contacto</h4><ul class="footer-links footer-contact"><li>info@productosdonjose.es</li><li>+34 925 679 180</li></ul></div>
     </div>
     <div class="footer-bottom"><div class="container footer-bottom-inner"><p>© <span class="footer-year"></span> Productos Don José. Todos los derechos reservados.</p><p>Diseñado para la tierra y la mesa.</p></div></div>
   </footer>
 
+  <script src="js/site-config.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
