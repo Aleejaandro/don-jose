@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" href="../assets/logos/favicon-donjose-full.ico" type="image/x-icon" />
+  <link rel="icon" href="../assets/logos/favicon-don-jose-full.ico" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Receta de Ensalada de Arroz con Atún usando Arroz Largo Don José, atún, maíz, tomate y aceitunas. El almuerzo completo listo en 20 minutos para llevar." />
   <title>Receta de Ensalada de Arroz con Atún | Productos Don José</title>
@@ -10,11 +10,19 @@
   <meta property="og:description" content="Arroz Largo Don José con atún, maíz, tomate fresco y aceitunas. El almuerzo rápido más completo para llevar." />
   <meta property="og:type" content="article" />
   <meta property="og:image" content="../assets/img/recetas/recipe-rice-salad.png" />
-  <link rel="canonical" href="https://www.productosdonjose.es/recetas/ensalada-arroz-atun.html" />
+  <link rel="canonical" href="https://productosdonjose.es/recetas/ensalada-arroz-atun.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/site-config.js"></script>
+  <script>
+    (function () {
+      var site = window.DONJOSE_SITE || {};
+      var showUsedProduct = site.recipesShowUsedProduct === true;
+      document.documentElement.dataset.recipesShowUsedProduct = showUsedProduct ? "true" : "false";
+    })();
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -264,7 +272,7 @@
               </div>
             </div>
 
-            <div class="recipe-sidebar-card">
+            <div class="recipe-sidebar-card recipe-sidebar-card--product">
               <p class="recipe-sidebar-title">Producto utilizado</p>
               <a href="../productos/arroz-largo.html" class="recipe-product-link">
                 <img src="../assets/img/productos/product-arroz-largo.png" alt="Arroz Largo Don José" class="recipe-product-img" loading="lazy">

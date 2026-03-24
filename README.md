@@ -1,38 +1,82 @@
-# Don José — Web estática
+# Productos Don Jose — Web estatica
 
-Sitio estático HTML, CSS y JS para Productos Don José. Rutas relativas para funcionar en GitHub Pages o cualquier servidor.
+Proyecto web estatico (HTML/CSS/JS) con formulario de contacto en PHP.
 
-## Cómo correr la web
+Canonica final del proyecto:
 
-Abre la carpeta con un servidor local:
+- `https://productosdonjose.es`
 
-```bash
-npx serve .
-```
+La variante con `www` debe redirigir a esta URL.
 
-O con Python:
+## Estructura tecnica
 
-```bash
-python -m http.server 8080
-```
+- `index.html`, `marca.html`, `productos.html`, `recetas.html`, `contacto.html`
+- `productos/*.html` y `recetas/*.html`
+- `legal/*.html`
+- `css/styles.css`
+- `js/script.js`
+- `js/site-config.js` 
+- `send-contact.php` (logica del formulario)
+- `send-contact-config.php` (credenciales SMTP y destinatario real)
+- `send-contact-config.sample.php` (plantilla para produccion)
+- `.htaccess` (HTTPS, canonia sin `www`, cache, compresion, proteccion config)
+- `robots.txt`
+- `sitemap.xml`
 
-Luego abre en el navegador: `http://localhost:3000` (serve) o `http://localhost:8080` (Python).
+## Formulario de contacto (PHP + PHPMailer + SMTP)
 
-## Estructura
+El formulario usa:
 
-- `index.html` — Inicio
-- `marca.html`, `productos.html`, `recetas.html`, `contacto.html` — Secciones
-- `productos/*.html` — Fichas de producto
-- `recetas/*.html` — Páginas de cada receta (enlazadas desde recetas.html)
-- `legal/` — Aviso legal, privacidad, cookies
-- `css/styles.css` — Estilos
-- `js/script.js` — Lógica
-- `assets/logos/` — Logo
-- `assets/img/home/` — Imágenes de la home (hero, lifestyle)
-- `assets/img/productos/` — Imágenes de productos
-- `assets/img/recetas/` — Imágenes de recetas
-- `send-contact.php`, `send-contact-config.php` — Formulario de contacto (misma convención que otras webs del cliente). `js/site-config.js` → `ABM_SITE.formAction`. Ver **FORMULARIOS-HOSTALIA.md**.
-- `php/` — PHPMailer (`composer install` en `php/` o `php/lib/phpmailer`).
-- `sitemap.xml` — Mapa del sitio para buscadores (URLs absolutas; si cambias de dominio, edita la base).
-- `robots.txt` — Indica a los robots qué rastrear y la URL del sitemap.
-- `.htaccess` — Reglas Apache (UTF-8, caché, sin listado de directorios; opción HTTPS comentada).
+- `send-contact.php` como endpoint
+- PHPMailer con SMTP autenticado
+- configuracion sensible separada en `send-contact-config.php`
+- respuesta **siempre JSON** (`success` + `message`)
+- gestion de exito/error en frontend con `fetch` (`js/script.js`)
+- redireccion en frontend al exito (`?enviado=1`)
+
+### Campos esperados por backend
+
+- `nombre` (obligatorio)
+- `apellidos` (opcional)
+- `email` (obligatorio)
+- `telefono` (opcional)
+- `asunto` (obligatorio)
+- `mensaje` (obligatorio)
+- `privacidad` (obligatorio)
+- `web_site` (honeypot anti-spam, oculto)
+
+## PHPMailer
+
+Si no encuentra PHPMailer, devuelve error controlado y registra un mensaje en `error_log`.
+
+## Configuracion de hosting (pasos del administrador)
+
+1. Subir todo el proyecto al `public_html` (o raiz web).
+2. Completar `send-contact-config.php` con datos reales:
+   - `SMTP_HOST`
+   - `SMTP_PORT`
+   - `SMTP_SECURE`
+   - `SMTP_USERNAME`
+   - `SMTP_PASSWORD`
+   - `SMTP_FROM_EMAIL`
+   - `SMTP_FROM_NAME`
+   - `DESTINATION_EMAIL`
+   - `DESTINATION_NAME`
+3. Confirmar que PHPMailer esta disponible:
+   - opcion principal: `lib/phpmailer/src/`
+   - opcion alternativa: `vendor/autoload.php`
+4. Verificar que `.htaccess` esta activo (`AllowOverride` habilitado).
+5. Verificar redireccion:
+   - `http://productosdonjose.es` -> `https://productosdonjose.es`
+   - `https://www.productosdonjose.es` -> `https://productosdonjose.es`
+
+## Verificacion antes de publicar
+
+- Enviar formulario real desde `contacto.html`
+- Comprobar recepcion del email en `DESTINATION_EMAIL`
+- Validar que la respuesta de error no expone datos sensibles
+- Confirmar que `send-contact.php` devuelve siempre JSON y no usa redirecciones HTTP
+- Comprobar que `send-contact-config.php` no es accesible por navegador
+
+
+

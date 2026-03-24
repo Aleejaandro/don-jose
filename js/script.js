@@ -186,8 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---- Contact form (contacto.html) ---- */
   const form       = document.getElementById('contact-form');
-  if (form && window.ABM_SITE && window.ABM_SITE.formAction) {
-    form.setAttribute('action', window.ABM_SITE.formAction);
+  if (form && window.DONJOSE_SITE && window.DONJOSE_SITE.formAction) {
+    form.setAttribute('action', window.DONJOSE_SITE.formAction);
   }
   const successEl  = document.getElementById('form-success');
   const errorEl    = document.getElementById('form-error');
@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const originalText = submitBtn.textContent;
       submitBtn.innerHTML = '<svg class="btn-spinner" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Enviando…';
 
-      const action = form.getAttribute('action') || (window.ABM_SITE && window.ABM_SITE.formAction) || 'send-contact.php';
+      const action = form.getAttribute('action') || (window.DONJOSE_SITE && window.DONJOSE_SITE.formAction) || 'send-contact.php';
       const formData = new FormData(form);
 
       fetch(action, {
@@ -294,8 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(res => res.json().catch(() => ({})))
         .then(data => {
           if (data && data.success) {
-            form.style.display = 'none';
-            if (successEl) successEl.style.display = 'flex';
+            window.location.href = window.location.pathname + '?enviado=1';
           } else {
             if (errorEl && errorText) {
               errorText.textContent = (data && data.message) ? data.message : 'Error al enviar. Inténtalo de nuevo.';

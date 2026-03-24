@@ -1,21 +1,50 @@
 <?php
 /**
  * Envío formulario de contacto — Productos Don José
- * POST (Ajax JSON o redirección). PHPMailer + SMTP.
+ * POST (respuesta JSON). PHPMailer + SMTP.
  */
 
 declare(strict_types=1);
 
-define('DMONDO_CONTACT', true);
+define('DONJOSE_CONTACT', true);
 require __DIR__ . '/send-contact-config.php';
 
-$autoload = __DIR__ . '/php/vendor/autoload.php';
-if (is_file($autoload)) {
-    require $autoload;
-} else {
-    require_once __DIR__ . '/php/lib/phpmailer/src/Exception.php';
-    require_once __DIR__ . '/php/lib/phpmailer/src/PHPMailer.php';
-    require_once __DIR__ . '/php/lib/phpmailer/src/SMTP.php';
+$phpMailerLoaded = false;
+
+$autoloadCandidates = [
+    __DIR__ . '/vendor/autoload.php',
+];
+
+foreach ($autoloadCandidates as $autoload) {
+    if (is_file($autoload)) {
+        require $autoload;
+        $phpMailerLoaded = true;
+        break;
+    }
+}
+
+if (!$phpMailerLoaded) {
+    $phpMailerLibBase = __DIR__ . '/lib/phpmailer/src/';
+    $phpMailerLibFiles = [
+        $phpMailerLibBase . 'Exception.php',
+        $phpMailerLibBase . 'PHPMailer.php',
+        $phpMailerLibBase . 'SMTP.php',
+    ];
+
+    $allLibFilesExist = true;
+    foreach ($phpMailerLibFiles as $file) {
+        if (!is_file($file)) {
+            $allLibFilesExist = false;
+            break;
+        }
+    }
+
+    if ($allLibFilesExist) {
+        require_once $phpMailerLibFiles[0];
+        require_once $phpMailerLibFiles[1];
+        require_once $phpMailerLibFiles[2];
+        $phpMailerLoaded = true;
+    }
 }
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -29,46 +58,30 @@ const ASUNTO_LABELS = [
     'otro'         => 'Otro',
 ];
 
-function sendJson(array $data): void
+function sendJson(array $data, int $statusCode = 200): void
 {
+    http_response_code($statusCode);
     header('Content-Type: application/json; charset=utf-8');
     echo json_encode($data, JSON_UNESCAPED_UNICODE);
     exit;
 }
 
-function redirect(string $page, string $param, string $value): void
-{
-    $url = $page . '?' . $param . '=' . rawurlencode($value);
-    header('Location: ' . $url, true, 303);
-    exit;
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    sendJson(['success' => false, 'message' => 'Método no permitido.'], 405);
 }
 
-$isAjax = !empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
-    strtolower((string) $_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
-
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    if ($isAjax) {
-        sendJson(['success' => false, 'message' => 'Método no permitido.']);
-    }
-    redirect('contacto.html', 'error', '1');
-    exit;
+if (!$phpMailerLoaded) {
+    error_log('[DonJose Form] PHPMailer no encontrado. Revisa /vendor/autoload.php o /lib/phpmailer/src/.');
+    sendJson(['success' => false, 'message' => 'Error técnico temporal. Inténtalo más tarde.'], 500);
 }
 
 if (trim((string) ($_POST['nombre'] ?? '')) === '' && trim((string) ($_POST['email'] ?? '')) === '' && trim((string) ($_POST['mensaje'] ?? '')) === '') {
-    if ($isAjax) {
-        sendJson(['success' => false, 'message' => 'Datos insuficientes.']);
-    }
-    redirect('contacto.html', 'error', '1');
-    exit;
+    sendJson(['success' => false, 'message' => 'Datos insuficientes.'], 400);
 }
 
 $honeypot = trim((string) ($_POST['web_site'] ?? ''));
 if ($honeypot !== '') {
-    if ($isAjax) {
-        sendJson(['success' => true, 'message' => 'Mensaje recibido.']);
-    }
-    redirect('contacto.html', 'enviado', '1');
-    exit;
+    sendJson(['success' => true, 'message' => 'Mensaje recibido.'], 200);
 }
 
 $nombre    = trim((string) ($_POST['nombre'] ?? ''));
@@ -110,11 +123,7 @@ if (!$privacidad) {
 
 if (count($errors) > 0) {
     $message = implode(' ', $errors);
-    if ($isAjax) {
-        sendJson(['success' => false, 'message' => $message]);
-    }
-    redirect('contacto.html', 'error', '1');
-    exit;
+    sendJson(['success' => false, 'message' => $message], 422);
 }
 
 $mail = new PHPMailer(true);
@@ -152,14 +161,10 @@ try {
     $mail->isHTML(false);
     $mail->send();
 } catch (PHPMailerException $e) {
-    if ($isAjax) {
-        sendJson(['success' => false, 'message' => 'Error al enviar. Inténtalo más tarde.']);
-    }
-    redirect('contacto.html', 'error', '1');
-    exit;
+    error_log('[DonJose Form] ' . $e->getMessage());
+    sendJson(['success' => false, 'message' => 'Error al enviar. Inténtalo más tarde.'], 500);
+} catch (Throwable $e) {
+    error_log('[DonJose Form] Error no controlado: ' . $e->getMessage());
+    sendJson(['success' => false, 'message' => 'Error técnico temporal. Inténtalo más tarde.'], 500);
 }
-
-if ($isAjax) {
-    sendJson(['success' => true, 'message' => 'Mensaje enviado correctamente.']);
-}
-redirect('contacto.html', 'enviado', '1');
+sendJson(['success' => true, 'message' => 'Mensaje enviado correctamente.'], 200);

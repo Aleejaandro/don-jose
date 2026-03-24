@@ -2,16 +2,16 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" href="assets/logos/favicon-donjose-full.ico" type="image/x-icon" />
+  <link rel="icon" href="assets/logos/favicon-don-jose-full.ico" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Productos Don José — Legumbres y arroces de calidad natural para el día a día. El auténtico don lo da la tierra." />
   <title>Productos Don José | Legumbres y Arroces Naturales</title>
   <meta property="og:title" content="Productos Don José" />
   <meta property="og:description" content="El auténtico don lo da la tierra. Legumbres y arroces de calidad natural." />
   <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://www.productosdonjose.es/" />
-  <meta property="og:url" content="https://www.productosdonjose.es/" />
-  <meta property="og:image" content="https://www.productosdonjose.es/assets/logos/logo-don-jose.png" />
+  <link rel="canonical" href="https://productosdonjose.es/" />
+  <meta property="og:url" content="https://productosdonjose.es/" />
+  <meta property="og:image" content="https://productosdonjose.es/assets/logos/logo-don-jose.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Productos Don José — Logo" />
@@ -19,11 +19,19 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Productos Don José | Legumbres y Arroces Naturales" />
   <meta name="twitter:description" content="El auténtico don lo da la tierra. Legumbres y arroces de calidad natural." />
-  <meta name="twitter:image" content="https://www.productosdonjose.es/assets/logos/logo-don-jose.png" />
+  <meta name="twitter:image" content="https://productosdonjose.es/assets/logos/logo-don-jose.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/site-config.js"></script>
+  <script>
+    (function () {
+      var site = window.DONJOSE_SITE || {};
+      var editorial = site.homeUseEditorialProductShowcase !== false;
+      document.documentElement.dataset.homeProductShowcase = editorial ? 'editorial' : 'grid';
+    })();
+  </script>
 </head>
 <body>
 
@@ -66,7 +74,7 @@
     <div class="container hero-content">
       <span class="badge fade-in" data-delay="0">Tradición &amp; Calidad</span>
       <h1 class="hero-title fade-in" data-delay="100">
-        El auténtico don<br>
+        El auténtico "Don"<br>
         <em>lo da la tierra</em>
       </h1>
       <p class="hero-subtitle fade-in" data-delay="200">
@@ -110,77 +118,6 @@
     </div>
   </section>
 
-  <!-- PRODUCTOS DESTACADOS -->
-  <section class="section section-soft">
-    <div class="container">
-      <div class="section-header fade-in">
-        <h2 class="section-title">Nuestros productos estrella</h2>
-        <p class="section-lead">Envasados con cuidado para mantener todas las propiedades intactas hasta el momento de cocinar.</p>
-      </div>
-      <div class="products-grid">
-        <article class="product-card fade-in" data-delay="0">
-          <a href="productos/garbanzo-pedrosillano.html" class="card-full-link" aria-label="Ver Garbanzo Pedrosillano"></a>
-          <div class="catalog-img-wrap">
-            <img src="assets/img/productos/product-garbanzo-pedrosillano.png" alt="Garbanzo Pedrosillano Don José envasado">
-            <div class="prod-overlay">
-              <span class="prod-overlay-label">Legumbre · 1 kg</span>
-              <span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span>
-            </div>
-          </div>
-          <div class="product-info">
-            <p class="product-info-type">Legumbre · 1 kg</p>
-            <h3 class="product-info-name">Garbanzo Pedrosillano</h3>
-          </div>
-        </article>
-        <article class="product-card fade-in" data-delay="80">
-          <a href="productos/lenteja-pardina.html" class="card-full-link" aria-label="Ver Lenteja Pardina"></a>
-          <div class="catalog-img-wrap">
-            <img src="assets/img/productos/product-lenteja-pardina.png" alt="Lenteja Pardina Don José envasada" loading="lazy">
-            <div class="prod-overlay">
-              <span class="prod-overlay-label">Legumbre · 1 kg</span>
-              <span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span>
-            </div>
-          </div>
-          <div class="product-info">
-            <p class="product-info-type">Legumbre · 1 kg</p>
-            <h3 class="product-info-name">Lenteja Pardina</h3>
-          </div>
-        </article>
-        <article class="product-card fade-in" data-delay="160">
-          <a href="productos/alubia-blanca.html" class="card-full-link" aria-label="Ver Alubia Blanca Riñón"></a>
-          <div class="catalog-img-wrap">
-            <img src="assets/img/productos/product-alubia-blanca.png" alt="Alubia Blanca Riñón Don José envasada" loading="lazy">
-            <div class="prod-overlay">
-              <span class="prod-overlay-label">Legumbre · 1 kg</span>
-              <span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span>
-            </div>
-          </div>
-          <div class="product-info">
-            <p class="product-info-type">Legumbre · 1 kg</p>
-            <h3 class="product-info-name">Alubia Blanca Riñón</h3>
-          </div>
-        </article>
-        <article class="product-card fade-in" data-delay="240">
-          <a href="productos/arroz-redondo.html" class="card-full-link" aria-label="Ver Arroz Redondo"></a>
-          <div class="catalog-img-wrap">
-            <img src="assets/img/productos/product-arroz-redondo.png" alt="Arroz Redondo Don José envasado" loading="lazy">
-            <div class="prod-overlay">
-              <span class="prod-overlay-label">Arroz · 1 kg</span>
-              <span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span>
-            </div>
-          </div>
-          <div class="product-info">
-            <p class="product-info-type">Arroz · 1 kg</p>
-            <h3 class="product-info-name">Arroz Redondo</h3>
-          </div>
-        </article>
-      </div>
-      <div style="text-align:center;margin-top:3rem;" class="fade-in">
-        <a href="productos.html" class="btn btn-outline btn-lg">Ver catálogo completo →</a>
-      </div>
-    </div>
-  </section>
-
   <!-- COMER BIEN -->
   <section class="section lifestyle-section">
     <div class="lifestyle-blob"></div>
@@ -205,6 +142,108 @@
       </div>
     </div>
   </section>
+
+  <!-- ZONA PRODUCTOS: editorial (nueva línea) o rejilla 4 destacados — ver DONJOSE_SITE.homeUseEditorialProductShowcase en js/site-config.js -->
+  <div class="home-product-zone" id="home-product-zone">
+    <section class="home-product-zone__panel home-product-zone__panel--editorial section section-soft home-product-showcase" aria-labelledby="home-showcase-heading">
+      <div class="container home-product-showcase__inner">
+        <div class="home-showcase fade-in">
+          <div class="home-showcase__bg" aria-hidden="true"></div>
+          <div class="home-showcase__veil" aria-hidden="true"></div>
+
+          <div class="home-showcase__content">
+            <p class="home-showcase__label fade-in">Nueva línea Don José</p>
+            <h2 id="home-showcase-heading" class="home-showcase__title fade-in" data-delay="80">
+              Natural por dentro,<br><em>actual por fuera</em>
+            </h2>
+            <p class="home-showcase__lead fade-in" data-delay="120">
+              Don José evoluciona su forma de presentarse sin perder lo que la hace reconocible: origen, claridad y producto bien cuidado.
+            </p>
+            <ul class="home-showcase__pills fade-in" data-delay="160" aria-label="Claves de la nueva línea">
+              <li class="home-showcase__pill">Origen seleccionado</li>
+              <li class="home-showcase__pill">Producto cuidado</li>
+              <li class="home-showcase__pill">Imagen renovada</li>
+            </ul>
+          </div>
+
+          <figure class="home-showcase__pack fade-in" data-delay="110">
+            <img
+              src="assets/img/productos/garbanzos.png"
+              alt="Envase de Garbanzo Pedrosillano Don José"
+              width="720"
+              height="900"
+              class="home-showcase__packshot"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="home-showcase__caption">Garbanzos Don José</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-product-zone__panel home-product-zone__panel--grid section section-soft" aria-labelledby="home-products-grid-heading">
+      <div class="container">
+        <div class="section-header fade-in" style="text-align:center;max-width:40rem;margin-inline:auto;margin-bottom:2.5rem;">
+          <h2 id="home-products-grid-heading" class="section-title">Productos destacados</h2>
+          <p class="section-lead">Una selección de nuestras legumbres más habituales. Calidad natural en cada bolsa.</p>
+        </div>
+        <div class="products-grid">
+          <article class="product-card fade-in" data-delay="0">
+            <a href="productos/garbanzo-pedrosillano.html" class="card-full-link" aria-label="Ver Garbanzo Pedrosillano"></a>
+            <div class="catalog-img-wrap">
+              <img src="assets/img/productos/product-garbanzo-pedrosillano.png" alt="Garbanzo Pedrosillano Don José envasado 1 kg" width="400" height="533" loading="lazy">
+              <div class="prod-overlay"><span class="prod-overlay-label">Legumbre · 1 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+            </div>
+            <div class="product-info">
+              <p class="product-info-type">Legumbre</p>
+              <h3 class="product-info-name">Garbanzo Pedrosillano</h3>
+              <p class="product-info-desc">De piel fina y cocción uniforme. El garbanzo clásico para cocidos y potajes.</p>
+            </div>
+          </article>
+          <article class="product-card fade-in" data-delay="80">
+            <a href="productos/lenteja-pardina.html" class="card-full-link" aria-label="Ver Lenteja Pardina"></a>
+            <div class="catalog-img-wrap">
+              <img src="assets/img/productos/product-lenteja-pardina.png" alt="Lenteja Pardina Don José envasada 1 kg" width="400" height="533" loading="lazy">
+              <div class="prod-overlay"><span class="prod-overlay-label">Legumbre · 1 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+            </div>
+            <div class="product-info">
+              <p class="product-info-type">Legumbre</p>
+              <h3 class="product-info-name">Lenteja Pardina</h3>
+              <p class="product-info-desc">Pequeña, de rápida cocción y sabor terroso. Ideal para guisos y ensaladas templadas.</p>
+            </div>
+          </article>
+          <article class="product-card fade-in" data-delay="160">
+            <a href="productos/alubia-blanca.html" class="card-full-link" aria-label="Ver Alubia Blanca Riñón"></a>
+            <div class="catalog-img-wrap">
+              <img src="assets/img/productos/product-alubia-blanca.png" alt="Alubia Blanca Riñón Don José envasada 1 kg" width="400" height="533" loading="lazy">
+              <div class="prod-overlay"><span class="prod-overlay-label">Legumbre · 1 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+            </div>
+            <div class="product-info">
+              <p class="product-info-type">Legumbre</p>
+              <h3 class="product-info-name">Alubia Blanca Riñón</h3>
+              <p class="product-info-desc">Cremosa y versátil. Perfecta para guisos donde manda la textura aterciopelada.</p>
+            </div>
+          </article>
+          <article class="product-card fade-in" data-delay="240">
+            <a href="productos/alubia-pinta.html" class="card-full-link" aria-label="Ver Alubia Pinta"></a>
+            <div class="catalog-img-wrap">
+              <img src="assets/img/productos/product-alubia-pinta.png" alt="Alubia Pinta Don José envasada 1 kg" width="400" height="533" loading="lazy">
+              <div class="prod-overlay"><span class="prod-overlay-label">Legumbre · 1 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+            </div>
+            <div class="product-info">
+              <p class="product-info-type">Legumbre</p>
+              <h3 class="product-info-name">Alubia Pinta</h3>
+              <p class="product-info-desc">Moteado tradicional y sabor intenso. Protagonista de los guisos de siempre.</p>
+            </div>
+          </article>
+        </div>
+        <p class="fade-in" style="text-align:center;margin-top:2.5rem;" data-delay="280">
+          <a href="productos.html" class="btn btn-outline">Ver catálogo completo</a>
+        </p>
+      </div>
+    </section>
+  </div>
 
   <!-- RECETAS PREVIEW -->
   <section class="section section-white">

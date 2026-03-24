@@ -4,7 +4,8 @@
 User-agent: *
 Allow: /
 
-# No indexar dependencias del backend (si existen en el servidor)
-Disallow: /php/vendor/
+# No indexar dependencias backend/librerías técnicas
+Disallow: /vendor/
+Disallow: /lib/
 
-Sitemap: https://www.productosdonjose.es/sitemap.xml
+Sitemap: https://productosdonjose.es/sitemap.xml

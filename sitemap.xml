@@ -1,118 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Sitemap — Productos Don José. Si el dominio final no es www.productosdonjose.es, reemplaza la URL base en todas las <loc>. -->
+<!-- Sitemap — Productos Don José -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.productosdonjose.es/</loc>
+    <loc>https://productosdonjose.es/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/marca.html</loc>
+    <loc>https://productosdonjose.es/marca.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/productos.html</loc>
+    <loc>https://productosdonjose.es/productos.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/recetas.html</loc>
+    <loc>https://productosdonjose.es/recetas.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/contacto.html</loc>
+    <loc>https://productosdonjose.es/contacto.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/productos/alubia-blanca.html</loc>
+    <loc>https://productosdonjose.es/productos/alubia-blanca.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/productos/alubia-pinta.html</loc>
+    <loc>https://productosdonjose.es/productos/alubia-pinta.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/productos/arroz-integral.html</loc>
+    <loc>https://productosdonjose.es/productos/arroz-integral.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/productos/arroz-largo.html</loc>
+    <loc>https://productosdonjose.es/productos/arroz-largo.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/productos/arroz-redondo.html</loc>
+    <loc>https://productosdonjose.es/productos/arroz-redondo.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/productos/garbanzo-extra.html</loc>
+    <loc>https://productosdonjose.es/productos/garbanzo-extra.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/productos/garbanzo-pedrosillano.html</loc>
+    <loc>https://productosdonjose.es/productos/garbanzo-pedrosillano.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/productos/lenteja-beluga.html</loc>
+    <loc>https://productosdonjose.es/productos/lenteja-beluga.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/productos/lenteja-pardina.html</loc>
+    <loc>https://productosdonjose.es/productos/lenteja-pardina.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/recetas/bowl-mediterraneo.html</loc>
+    <loc>https://productosdonjose.es/recetas/bowl-mediterraneo.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/recetas/lentejas-con-verduras.html</loc>
+    <loc>https://productosdonjose.es/recetas/lentejas-con-verduras.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/recetas/ensalada-tibia-garbanzos.html</loc>
+    <loc>https://productosdonjose.es/recetas/ensalada-tibia-garbanzos.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/recetas/arroz-meloso-verduras.html</loc>
+    <loc>https://productosdonjose.es/recetas/arroz-meloso-verduras.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/recetas/ensalada-arroz-atun.html</loc>
+    <loc>https://productosdonjose.es/recetas/ensalada-arroz-atun.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/recetas/fabada-estilo-actual.html</loc>
+    <loc>https://productosdonjose.es/recetas/fabada-estilo-actual.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/legal/aviso-legal.html</loc>
+    <loc>https://productosdonjose.es/legal/aviso-legal.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/legal/privacidad.html</loc>
+    <loc>https://productosdonjose.es/legal/privacidad.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://www.productosdonjose.es/legal/cookies.html</loc>
+    <loc>https://productosdonjose.es/legal/cookies.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>

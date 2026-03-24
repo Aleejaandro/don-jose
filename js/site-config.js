@@ -1,8 +1,26 @@
 /**
- * Configuración front — misma convención que otras webs del cliente (ABM_SITE).
+ * Configuración front — Productos Don José.
  */
-window.ABM_SITE = {
+window.DONJOSE_SITE = {
   formAction: 'send-contact.php',
-  canonicalBase: 'https://www.productosdonjose.es/',
-  ogImage: 'assets/logos/logo-don-jose.png'
+  canonicalBase: 'https://productosdonjose.es/',
+  ogImage: 'https://productosdonjose.es/assets/logos/logo-don-jose.png',
+  /**
+   * Home — zona productos (index.html):
+   * true  → escaparate editorial (una referencia / nueva línea).
+   * false → rejilla clásica de 4 productos destacados con enlace a fichas.
+   */
+  homeUseEditorialProductShowcase: true,
+  /**
+   * Página productos (productos.html):
+   * true  → modo editorial "línea en desarrollo" (sin catálogo visible).
+   * false → modo catálogo completo con filtros y fichas (estado original).
+   */
+  productsUseEditorialMode: true,
+  /**
+   * Recetas (recetas/*.html):
+   * true  → mostrar bloque "Producto utilizado".
+   * false → ocultarlo temporalmente hasta disponer de catálogo definitivo.
+   */
+  recipesShowUsedProduct: false
 };

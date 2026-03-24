@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" href="../assets/logos/favicon-donjose-full.ico" type="image/x-icon" />
+  <link rel="icon" href="../assets/logos/favicon-don-jose-full.ico" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Receta de Lentejas con Verduras de Temporada con Lenteja Pardina Don José, zanahoria, puerro y pimentón ahumado. Nutritivo y reconfortante. Lista en 45 minutos." />
   <title>Receta de Lentejas con Verduras de Temporada | Productos Don José</title>
@@ -10,11 +10,19 @@
   <meta property="og:description" content="Lenteja Pardina Don José con zanahoria, puerro, apio y pimentón ahumado. Nutritivo y reconfortante en 45 minutos." />
   <meta property="og:type" content="article" />
   <meta property="og:image" content="../assets/img/recetas/recipe-stew.png" />
-  <link rel="canonical" href="https://www.productosdonjose.es/recetas/lentejas-con-verduras.html" />
+  <link rel="canonical" href="https://productosdonjose.es/recetas/lentejas-con-verduras.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/site-config.js"></script>
+  <script>
+    (function () {
+      var site = window.DONJOSE_SITE || {};
+      var showUsedProduct = site.recipesShowUsedProduct === true;
+      document.documentElement.dataset.recipesShowUsedProduct = showUsedProduct ? "true" : "false";
+    })();
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -268,7 +276,7 @@
               </div>
             </div>
 
-            <div class="recipe-sidebar-card">
+            <div class="recipe-sidebar-card recipe-sidebar-card--product">
               <p class="recipe-sidebar-title">Producto utilizado</p>
               <a href="../productos/lenteja-pardina.html" class="recipe-product-link">
                 <img src="../assets/img/productos/product-lenteja-pardina.png" alt="Lenteja Pardina Don José" class="recipe-product-img" loading="lazy">

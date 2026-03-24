@@ -2,28 +2,36 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" href="assets/logos/favicon-donjose-full.ico" type="image/x-icon" />
+  <link rel="icon" href="assets/logos/favicon-don-jose-full.ico" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Catálogo de productos Productos Don José. Garbanzos, lentejas, alubias, arroces y más. Legumbres y arroces naturales de calidad, bien envasados y a buen precio." />
-  <title>Productos | Catálogo de Legumbres y Arroces Don José</title>
-  <meta property="og:title" content="Catálogo de Productos — Productos Don José" />
-  <meta property="og:description" content="Garbanzos, lentejas, alubias y arroces. Calidad natural, bien envasados." />
+  <meta name="description" content="Línea de productos Don José: legumbres y arroces seleccionados, con imagen renovada y gama completa en desarrollo." />
+  <title>Productos | Línea Don José</title>
+  <meta property="og:title" content="Productos — Línea Don José" />
+  <meta property="og:description" content="Don José evoluciona su línea de legumbres y arroces: origen, calidad y presentación renovada." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.productosdonjose.es/productos.html" />
-  <meta property="og:image" content="https://www.productosdonjose.es/assets/logos/logo-don-jose.png" />
+  <meta property="og:url" content="https://productosdonjose.es/productos.html" />
+  <meta property="og:image" content="https://productosdonjose.es/assets/logos/logo-don-jose.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Productos Don José — Logo" />
   <meta property="og:locale" content="es_ES" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Catálogo de Productos — Productos Don José" />
-  <meta name="twitter:description" content="Garbanzos, lentejas, alubias y arroces. Calidad natural, bien envasados." />
-  <meta name="twitter:image" content="https://www.productosdonjose.es/assets/logos/logo-don-jose.png" />
-  <link rel="canonical" href="https://www.productosdonjose.es/productos.html" />
+  <meta name="twitter:title" content="Productos — Línea Don José" />
+  <meta name="twitter:description" content="Don José evoluciona su línea de legumbres y arroces: origen, calidad y presentación renovada." />
+  <meta name="twitter:image" content="https://productosdonjose.es/assets/logos/logo-don-jose.png" />
+  <link rel="canonical" href="https://productosdonjose.es/productos.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/site-config.js"></script>
+  <script>
+    (function () {
+      var site = window.DONJOSE_SITE || {};
+      var editorial = site.productsUseEditorialMode !== false;
+      document.documentElement.dataset.productsPageMode = editorial ? 'editorial' : 'catalog';
+    })();
+  </script>
 </head>
 <body>
 
@@ -59,11 +67,51 @@
       <nav class="breadcrumb" aria-label="Ruta de navegación">
         <a href="index.html">Inicio</a><span aria-hidden="true">›</span><span aria-current="page">Productos</span>
       </nav>
-      <h1 class="page-hero-title fade-in">Nuestro catálogo<br><em>de productos</em></h1>
-      <p class="page-hero-sub fade-in" data-delay="100">Legumbres y arroces seleccionados, bien envasados y a un precio justo.</p>
+      <h1 class="page-hero-title fade-in">Nuestra línea<br><em>de producto</em></h1>
+      <p class="page-hero-sub fade-in" data-delay="100">Estamos desarrollando la gama completa de Don José con una imagen renovada y el estándar de calidad de siempre.</p>
     </div>
   </section>
 
+  <div class="products-page-mode" id="products-page-mode">
+    <section class="products-page-mode__panel products-page-mode__panel--editorial section section-white" aria-labelledby="products-preview-heading">
+      <div class="container">
+        <article class="products-preview-card fade-in">
+          <div class="products-preview-card__bg" aria-hidden="true"></div>
+          <div class="products-preview-card__veil" aria-hidden="true"></div>
+
+          <div class="products-preview-card__content">
+            <p class="products-preview-card__label">Línea en desarrollo</p>
+            <h2 id="products-preview-heading" class="products-preview-card__title">Gama completa de Don José, <em>próximamente disponible</em></h2>
+            <p class="products-preview-card__lead">
+              Estamos construyendo toda la línea de producto para presentarla con coherencia de marca, claridad visual y la calidad que ya conoces.
+            </p>
+            <ul class="products-preview-card__pills" aria-label="Claves de la nueva línea">
+              <li class="products-preview-card__pill">Origen seleccionado</li>
+              <li class="products-preview-card__pill">Producto cuidado</li>
+              <li class="products-preview-card__pill">Imagen renovada</li>
+            </ul>
+            <div class="products-preview-card__actions">
+              <a href="recetas.html" class="btn btn-outline">Ver inspiración y recetas</a>
+              <a href="contacto.html" class="btn btn-primary">Hablar con el equipo</a>
+            </div>
+          </div>
+
+          <figure class="products-preview-card__pack">
+            <img
+              src="assets/img/productos/garbanzos.png"
+              alt="Envase de Garbanzo Pedrosillano Don José"
+              width="720"
+              height="900"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="products-preview-card__caption">Referencia actual disponible: Garbanzos Don José</figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <div class="products-page-mode__panel products-page-mode__panel--catalog">
   <!-- FILTROS -->
   <section class="section section-white section--filters">
     <div class="container">
@@ -222,6 +270,8 @@
       <a href="contacto.html" class="btn btn-primary btn-lg" style="margin-top:2rem;">Contactar con el equipo</a>
     </div>
   </section>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer class="site-footer">
