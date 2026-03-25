@@ -332,9 +332,9 @@ ul { list-style: none; }
 }
 .badge__logo {
   display: block;
-  width: clamp(140px, 28vw, 220px);
+  width: clamp(210px, 36vw, 340px);
   height: auto;
-  filter: invert(1) contrast(1.15) brightness(1.05) drop-shadow(0 10px 24px rgba(0,0,0,0.22));
+  filter: invert(1) sepia(0.72) saturate(1.45) hue-rotate(348deg) brightness(1.18) contrast(0.72) drop-shadow(0 10px 24px rgba(58,38,18,0.2));
 }
 .hero-title {
   font-family: var(--font-serif);
