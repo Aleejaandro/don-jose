@@ -326,6 +326,16 @@ ul { list-style: none; }
   text-transform: uppercase;
   margin-bottom: 1.5rem;
 }
+.badge--logo {
+  background: transparent;
+  padding: 0;
+}
+.badge__logo {
+  display: block;
+  width: clamp(140px, 28vw, 220px);
+  height: auto;
+  filter: invert(1) contrast(1.15) brightness(1.05) drop-shadow(0 10px 24px rgba(0,0,0,0.22));
+}
 .hero-title {
   font-family: var(--font-serif);
   font-size: clamp(2.8rem, 8vw, 6.5rem);
