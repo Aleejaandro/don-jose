@@ -318,23 +318,14 @@ ul { list-style: none; }
   display: inline-block;
   padding: 0.35rem 1rem;
   border-radius: 999px;
-  background: rgba(74, 124, 89, 0.18);
+  background: #e8ece2;
   color: #2e5c3a;
+  border: 1px solid rgba(53, 92, 64, 0.22);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
-}
-.badge--logo {
-  background: transparent;
-  padding: 0;
-}
-.badge__logo {
-  display: block;
-  width: clamp(210px, 36vw, 340px);
-  height: auto;
-  filter: invert(1) sepia(0.72) saturate(1.45) hue-rotate(348deg) brightness(1.18) contrast(0.72) drop-shadow(0 10px 24px rgba(58,38,18,0.2));
 }
 .hero-title {
   font-family: var(--font-serif);
