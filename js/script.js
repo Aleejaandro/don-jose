@@ -197,7 +197,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mensajes tras redirección (envío sin JS o fallback)
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.get('enviado') === '1' && form && successEl) {
-    form.style.display = 'none';
+    // `#form-success` vive dentro del <form>. Si ocultamos el form completo,
+    // el mensaje de éxito también queda oculto.
+    // Solo escondemos el resto de controles, manteniendo el mensaje visible.
+    Array.from(form.children).forEach(child => {
+      if (child === successEl) return;
+      child.style.display = 'none';
+    });
     successEl.style.display = 'flex';
     window.history.replaceState({}, '', window.location.pathname);
   }
