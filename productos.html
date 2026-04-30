@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <link rel="icon" href="assets/logos/favicon-don-jose-full.ico" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Línea de productos Don José: legumbres y arroces seleccionados, con imagen renovada y gama completa en desarrollo." />
+  <meta name="description" content="Línea de productos Don José: legumbres y arroces seleccionados, imagen renovada y gama completa ya disponible." />
   <title>Productos | Línea Don José</title>
   <meta property="og:title" content="Productos — Línea Don José" />
   <meta property="og:description" content="Don José evoluciona su línea de legumbres y arroces: origen, calidad y presentación renovada." />
@@ -68,7 +68,7 @@
         <a href="index.html">Inicio</a><span aria-hidden="true">›</span><span aria-current="page">Productos</span>
       </nav>
       <h1 class="page-hero-title fade-in">Nuestra línea<br><em>de producto</em></h1>
-      <p class="page-hero-sub fade-in" data-delay="100">Estamos desarrollando la gama completa de Don José con una imagen renovada y el estándar de calidad de siempre.</p>
+      <p class="page-hero-sub fade-in" data-delay="100">La gama completa de Don José ya está disponible: imagen renovada y el mismo estándar de calidad de siempre.</p>
     </div>
   </section>
 
@@ -80,10 +80,10 @@
           <div class="products-preview-card__veil" aria-hidden="true"></div>
 
           <div class="products-preview-card__content">
-            <p class="products-preview-card__label">Línea en desarrollo</p>
-            <h2 id="products-preview-heading" class="products-preview-card__title">Gama completa de Don José, <em>próximamente disponible</em></h2>
+            <p class="products-preview-card__label">Gama completa</p>
+            <h2 id="products-preview-heading" class="products-preview-card__title">Legumbres, arroces, ecológicos y conservas, <em>ya en tu mesa</em></h2>
             <p class="products-preview-card__lead">
-              Estamos actualizando nuestra gama de productos. <br>¡ En Breve tendrás un montón de novedades!
+              La línea Don José está completa: descubre cada referencia más abajo con la nueva imagen y la calidad que nos caracteriza.
             </p>
             <ul class="products-preview-card__pills" aria-label="Claves de la nueva línea">
               <li class="products-preview-card__pill">Origen seleccionado</li>
@@ -105,7 +105,7 @@
               loading="lazy"
               decoding="async"
             />
-            <figcaption class="products-preview-card__caption">Referencia actual disponible: Garbanzos Don José</figcaption>
+            <figcaption class="products-preview-card__caption">Nueva imagen en el envase Don José</figcaption>
           </figure>
         </article>
       </div>
@@ -116,10 +116,18 @@
   <section class="section section-white section--filters">
     <div class="container">
       <div class="filter-tabs" id="filter-tabs" role="tablist" aria-label="Filtrar por categoría">
-        <button class="filter-btn active" data-filter="todos" role="tab" aria-selected="true">Todos</button>
-        <button class="filter-btn" data-filter="legumbres" role="tab" aria-selected="false">Legumbres</button>
-        <button class="filter-btn" data-filter="arroces" role="tab" aria-selected="false">Arroces</button>
-        <button class="filter-btn" data-filter="seleccion" role="tab" aria-selected="false">Selección</button>
+        <button type="button" class="filter-btn active" data-filter="todos" role="tab" aria-selected="true">Todos</button>
+        <button type="button" class="filter-btn" data-filter="legumbres" role="tab" aria-selected="false">Legumbres</button>
+        <button type="button" class="filter-btn" data-filter="arroces" role="tab" aria-selected="false">Arroces</button>
+        <button type="button" class="filter-btn" data-filter="ecologicos" role="tab" aria-selected="false">Ecológicos</button>
+        <button type="button" class="filter-btn" data-filter="conserva" role="tab" aria-selected="false">Conserva</button>
+      </div>
+      <div class="filter-tabs filter-tabs-sub" id="filter-tabs-legumbres" hidden role="tablist" aria-label="Tipo de legumbre">
+        <p class="filter-sub-hint" id="filter-legumbres-hint">Dentro de legumbres</p>
+        <button type="button" class="filter-btn active" data-legume-sub="todas" role="tab" aria-selected="true">Todas</button>
+        <button type="button" class="filter-btn" data-legume-sub="garbanzos" role="tab" aria-selected="false">Garbanzos</button>
+        <button type="button" class="filter-btn" data-legume-sub="lentejas" role="tab" aria-selected="false">Lentejas</button>
+        <button type="button" class="filter-btn" data-legume-sub="alubias" role="tab" aria-selected="false">Alubias</button>
       </div>
     </div>
   </section>
@@ -130,81 +138,146 @@
       <h2 class="catalog-group-title fade-in" data-category="legumbres">Legumbres</h2>
       <div class="catalog-grid">
 
-        <article class="catalog-card fade-in" data-category="legumbres" data-delay="0">
+        <article class="catalog-card fade-in" data-tags="legumbres garbanzos" data-delay="0">
           <a href="productos/garbanzo-pedrosillano.html" class="card-full-link" aria-label="Ver Garbanzo Pedrosillano"></a>
           <div class="catalog-img-wrap">
-            <img src="assets/img/productos/product-garbanzo-pedrosillano.png" alt="Garbanzo Pedrosillano Don José envasado 1 kg" loading="lazy">
-            <div class="prod-overlay"><span class="prod-overlay-label">Legumbre · 1 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+            <img src="assets/img/productos/legumbres/garbanzo-pedrosillano.webp" alt="Garbanzo Pedrosillano Don José — presentaciones 500 g, 1 kg y 5 kg" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: 500 g · 1 kg · 5 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
           </div>
           <div class="catalog-info">
             <h3 class="catalog-name">Garbanzo Pedrosillano</h3>
-            <p class="catalog-desc">De piel fina, cocción uniforme y sabor suave. El garbanzo clásico para cocidos y potajes. Especialmente apreciado por su textura firme al cocer.</p>
-            <div class="catalog-tags"><span class="tag">Alto en proteína</span><span class="tag">Sin gluten</span><span class="tag">1 kg</span></div>
+            <p class="catalog-desc"><em>Garbanzo pedrosillano pequeño y sabroso, de origen español. Muy valorado por su sabor y su buena calidad-precio.</em></p>
+            <div class="catalog-tags"><span class="tag">Origen español</span><span class="tag">Pequeño y sabroso</span></div>
           </div>
         </article>
 
-        <article class="catalog-card fade-in" data-category="legumbres" data-delay="80">
+        <article class="catalog-card fade-in" data-tags="legumbres garbanzos" data-delay="40">
+          <a href="productos/garbanzo-castellano.html" class="card-full-link" aria-label="Ver Garbanzo castellano"></a>
+          <div class="catalog-img-wrap">
+            <img src="assets/img/productos/legumbres/garbanzo-castellano.webp" alt="Garbanzo castellano Don José — presentaciones 500 g, 1 kg y 5 kg" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: 500 g · 1 kg · 5 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Garbanzo castellano</h3>
+            <p class="catalog-desc">La legumbre más consumida del mundo. Muy usada en hummus, falafel y en España, destaca por su buena relación calidad-precio.</p>
+            <div class="catalog-tags"><span class="tag">Versátil</span><span class="tag">Calidad-precio</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres garbanzos" data-delay="60">
+          <a href="productos/garbanzo-lechoso.html" class="card-full-link" aria-label="Ver Garbanzo Lechoso"></a>
+          <div class="catalog-img-wrap">
+            <img src="assets/img/productos/legumbres/garbanzo-lechoso.webp" alt="Garbanzo Lechoso Don José — presentaciones 500 g, 1 kg y 5 kg" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: 500 g · 1 kg · 5 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Garbanzo Lechoso</h3>
+            <p class="catalog-desc"><em>Garbanzo lechoso, variedad apreciada por su textura cremosa y su sabor suave al cocer. Ideal para cocidos, potajes y elaboraciones caseras.</em></p>
+            <div class="catalog-tags"><span class="tag">Textura cremosa</span><span class="tag">Sabor suave</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres lentejas" data-delay="72">
+          <a href="productos/lenteja-castellana.html" class="card-full-link" aria-label="Ver Lenteja Castellana"></a>
+          <div class="catalog-img-wrap">
+            <img src="assets/img/productos/legumbres/lenteja-castellana.webp" alt="Lenteja Castellana Don José — presentaciones 500 g, 1 kg y 5 kg" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: 500 g · 1 kg · 5 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Lenteja Castellana</h3>
+            <p class="catalog-desc"><em>Lenteja castellana de gran tradición en las dos Castillas. De sabor suave y textura fina, mantiene la piel intacta y realza los guisos.</em></p>
+            <div class="catalog-tags"><span class="tag">Dos Castillas</span><span class="tag">Textura fina</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres lentejas" data-delay="80">
           <a href="productos/lenteja-pardina.html" class="card-full-link" aria-label="Ver Lenteja Pardina"></a>
           <div class="catalog-img-wrap">
-            <img src="assets/img/productos/product-lenteja-pardina.png" alt="Lenteja Pardina Don José envasada 1 kg" loading="lazy">
-            <div class="prod-overlay"><span class="prod-overlay-label">Legumbre · 1 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+            <img src="assets/img/productos/legumbres/lenteja-pardina.webp" alt="Lenteja Pardina Don José — presentaciones 500 g, 1 kg y 5 kg" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: 500 g · 1 kg · 5 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
           </div>
           <div class="catalog-info">
             <h3 class="catalog-name">Lenteja Pardina</h3>
-            <p class="catalog-desc">La lenteja de referencia española. Pequeña, de rápida cocción y con un sabor terroso inconfundible. Perfecta para guisos, sopas y ensaladas templadas.</p>
-            <div class="catalog-tags"><span class="tag">Cocción rápida</span><span class="tag">Hierro natural</span><span class="tag">1 kg</span></div>
+            <p class="catalog-desc"><em>Lenteja pardina de gran tradición mediterránea. Destaca por su sabor intenso y buena resistencia a la cocción frente a otras variedades.</em></p>
+            <div class="catalog-tags"><span class="tag">Mediterránea</span><span class="tag">Sabor intenso</span></div>
           </div>
         </article>
 
-        <article class="catalog-card fade-in" data-category="legumbres" data-delay="160">
-          <a href="productos/alubia-blanca.html" class="card-full-link" aria-label="Ver Alubia Blanca Riñón"></a>
+        <article class="catalog-card fade-in" data-tags="legumbres lentejas" data-delay="88">
+          <a href="productos/lenteja-roja.html" class="card-full-link" aria-label="Ver Lenteja Roja"></a>
           <div class="catalog-img-wrap">
-            <img src="assets/img/productos/product-alubia-blanca.png" alt="Alubia Blanca Riñón Don José envasada 1 kg" loading="lazy">
-            <div class="prod-overlay"><span class="prod-overlay-label">Legumbre · 1 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+            <img src="assets/img/productos/legumbres/lenteja-roja-card-premium.webp" alt="Lenteja Roja Don José — presentaciones 500 g, 1 kg y 5 kg" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: 500 g · 1 kg · 5 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
           </div>
           <div class="catalog-info">
-            <h3 class="catalog-name">Alubia Blanca Riñón</h3>
-            <p class="catalog-desc">Grande, cremosa y de piel suave. La alubia riñón es la reina de los guisos del norte. Textura aterciopelada y sabor delicado que combina con todo.</p>
-            <div class="catalog-tags"><span class="tag">Textura cremosa</span><span class="tag">Fibra</span><span class="tag">1 kg</span></div>
+            <h3 class="catalog-name">Lenteja Roja</h3>
+            <p class="catalog-desc"><em>Lenteja roja de cocción ágil. Versátil en purés, cremas y platos de cuchara.</em></p>
+            <div class="catalog-tags"><span class="tag">Cocción ágil</span><span class="tag">Purés y cremas</span></div>
           </div>
         </article>
 
-        <article class="catalog-card fade-in" data-category="legumbres" data-delay="240">
-          <a href="productos/alubia-pinta.html" class="card-full-link" aria-label="Ver Alubia Pinta"></a>
+        <article class="catalog-card fade-in" data-tags="legumbres alubias" data-delay="160">
+          <a href="productos/alubia-blanca.html" class="card-full-link" aria-label="Ver Alubia riñón"></a>
           <div class="catalog-img-wrap">
-            <img src="assets/img/productos/product-alubia-pinta.png" alt="Alubia Pinta Don José envasada 1 kg" loading="lazy">
-            <div class="prod-overlay"><span class="prod-overlay-label">Legumbre · 1 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+            <img src="assets/img/productos/legumbres/alubia-rinon.webp" alt="Alubia riñón Don José — presentaciones 500 g, 1 kg y 5 kg" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: 500 g · 1 kg · 5 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
           </div>
           <div class="catalog-info">
-            <h3 class="catalog-name">Alubia Pinta</h3>
-            <p class="catalog-desc">Con su inconfundible moteado, la alubia pinta es protagonista de los guisos más tradicionales de Castilla. Sabor intenso, textura firme.</p>
-            <div class="catalog-tags"><span class="tag">Sabor intenso</span><span class="tag">Proteína vegetal</span><span class="tag">1 kg</span></div>
+            <h3 class="catalog-name">Alubia riñón</h3>
+            <p class="catalog-desc">Alubia blanca grande y arriñonada, de textura suave. Nutritiva, rica en fibra y proteína vegetal, ideal para una dieta saludable.</p>
+            <div class="catalog-tags"><span class="tag">Fibra</span><span class="tag">Proteína vegetal</span></div>
           </div>
         </article>
 
-        <article class="catalog-card fade-in" data-category="seleccion legumbres" data-delay="320">
-          <a href="productos/garbanzo-extra.html" class="card-full-link" aria-label="Ver Garbanzo Extra Selección"></a>
+        <article class="catalog-card fade-in" data-tags="legumbres alubias" data-delay="200">
+          <a href="productos/alubia-fabada-asturiana.html" class="card-full-link" aria-label="Ver Alubia fabada asturiana"></a>
           <div class="catalog-img-wrap">
-            <img src="assets/img/productos/product-garbanzo-extra.png" alt="Garbanzo Extra Selección Don José envasado 500 g" loading="lazy">
-            <div class="prod-overlay"><span class="prod-overlay-label">⭐ Selección · 500 g</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+            <img src="assets/img/productos/legumbres/alubia-fabada-asturiana-card-premium.webp" alt="Alubia fabada asturiana Don José — presentaciones 500 g y 1 kg" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: 500 g · 1 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
           </div>
           <div class="catalog-info">
-            <h3 class="catalog-name">Garbanzo Extra — Selección</h3>
-            <p class="catalog-desc">Nuestra gama premium. Garbanzos de mayor calibre, seleccionados uno a uno para garantizar uniformidad y una cocción perfecta en cada preparación.</p>
-            <div class="catalog-tags"><span class="tag">⭐ Premium</span><span class="tag">Calibre superior</span><span class="tag">500 g</span></div>
+            <h3 class="catalog-name">Alubia fabada asturiana</h3>
+            <p class="catalog-desc">Alubia blanca grande, la de referencia para la fabada. Textura mantecosa y piel fina tras una cocción lenta. Tradición asturiana en el plato.</p>
+            <div class="catalog-tags"><span class="tag">Fabada</span><span class="tag">Asturias</span></div>
           </div>
         </article>
 
-        <article class="catalog-card fade-in" data-category="seleccion legumbres" data-delay="400">
-          <a href="productos/lenteja-beluga.html" class="card-full-link" aria-label="Ver Lenteja Beluga Selección"></a>
+        <article class="catalog-card fade-in" data-tags="legumbres alubias" data-delay="240">
+          <a href="productos/alubia-pinta.html" class="card-full-link" aria-label="Ver Alubia pinta"></a>
           <div class="catalog-img-wrap">
-            <img src="assets/img/productos/product-lenteja-beluga.png" alt="Lenteja Beluga Selección Don José envasada 500 g" loading="lazy">
-            <div class="prod-overlay"><span class="prod-overlay-label">⭐ Selección · 500 g</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+            <img src="assets/img/productos/legumbres/alubia-pinta.webp" alt="Alubia pinta Don José — presentaciones 500 g, 1 kg y 5 kg" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: 500 g · 1 kg · 5 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
           </div>
           <div class="catalog-info">
-            <h3 class="catalog-name">Lenteja Beluga — Selección</h3>
-            <p class="catalog-desc">Pequeñas y negras como el caviar. La lenteja beluga conserva su forma perfectamente al cocer. Ideal para ensaladas gourmet y platos modernos.</p>
-            <div class="catalog-tags"><span class="tag">⭐ Premium</span><span class="tag">Antioxidantes</span><span class="tag">500 g</span></div>
+            <h3 class="catalog-name">Alubia pinta</h3>
+            <p class="catalog-desc">Alubia apreciada por su sabor suave y su buena combinación en guisos con arroz. La de León destaca por su secado natural y mayor calidad.</p>
+            <div class="catalog-tags"><span class="tag">Sabor suave</span><span class="tag">Con arroz</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres alubias" data-delay="280">
+          <a href="productos/alubia-roja.html" class="card-full-link" aria-label="Ver Alubia roja"></a>
+          <div class="catalog-img-wrap">
+            <img src="assets/img/productos/legumbres/alubia-roja.webp" alt="Alubia roja Don José — presentaciones 500 g, 1 kg y 5 kg" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: 500 g · 1 kg · 5 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Alubia roja</h3>
+            <p class="catalog-desc">Alubia púrpura, plana y arriñonada. Muy suave tras la cocción, manteniendo su color y una textura muy tersa. Especial para ensaladas.</p>
+            <div class="catalog-tags"><span class="tag">Ensaladas</span><span class="tag">Color</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres alubias" data-delay="300">
+          <a href="productos/alubia-arrocina.html" class="card-full-link" aria-label="Ver Alubia blanca arrocina"></a>
+          <div class="catalog-img-wrap">
+            <img src="assets/img/productos/legumbres/alubia-blanca-arrocina.webp" alt="Alubia blanca arrocina Don José — presentaciones 500 g, 1 kg y 5 kg" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: 500 g · 1 kg · 5 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Alubia blanca arrocina</h3>
+            <p class="catalog-desc">Alubia blanca y pequeña, ovalada y de gran calidad. Cremosa y resistente a la cocción. También conocida como Míchigan o de Santa Pau.</p>
+            <div class="catalog-tags"><span class="tag">Cremosa</span><span class="tag">Cocción</span></div>
           </div>
         </article>
 
@@ -218,42 +291,333 @@
       <h2 class="catalog-group-title fade-in" data-category="arroces">Arroces</h2>
       <div class="catalog-grid">
 
-        <article class="catalog-card fade-in" data-category="arroces" data-delay="0">
+        <article class="catalog-card fade-in" data-tags="arroces" data-delay="0">
           <a href="productos/arroz-redondo.html" class="card-full-link" aria-label="Ver Arroz Redondo"></a>
           <div class="catalog-img-wrap">
-            <img src="assets/img/productos/product-arroz-redondo.png" alt="Arroz Redondo Categoría Extra Don José envasado 1 kg" loading="lazy">
-            <div class="prod-overlay"><span class="prod-overlay-label">Arroz · 1 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+            <img src="assets/img/productos/arroces/arroz-redondo.webp" alt="Arroz Redondo Categoría Extra Don José — presentaciones 1 kg y 5 kg" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: 1 kg · 5 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
           </div>
           <div class="catalog-info">
             <h3 class="catalog-name">Arroz Redondo</h3>
             <p class="catalog-desc">El arroz de toda la vida. Grano redondo y absorbente, perfecto para paellas, arroces melosos y postres de leche. Categoría Extra garantizada.</p>
-            <div class="catalog-tags"><span class="tag">Categoría Extra</span><span class="tag">Paella</span><span class="tag">1 kg</span></div>
+            <div class="catalog-tags"><span class="tag">Categoría Extra</span><span class="tag">Paella</span></div>
           </div>
         </article>
 
-        <article class="catalog-card fade-in" data-category="arroces" data-delay="80">
-          <a href="productos/arroz-largo.html" class="card-full-link" aria-label="Ver Arroz Largo"></a>
+        <article class="catalog-card fade-in" data-tags="arroces" data-delay="40">
+          <a href="productos/arroz-vaporizado.html" class="card-full-link" aria-label="Ver Arroz Vaporizado"></a>
           <div class="catalog-img-wrap">
-            <img src="assets/img/productos/product-arroz-largo.png" alt="Arroz Largo Grano Largo Don José envasado 1 kg" loading="lazy">
-            <div class="prod-overlay"><span class="prod-overlay-label">Arroz · 1 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+            <img src="assets/img/productos/arroces/arroz-vaporizado-card-premium.webp" alt="Arroz Vaporizado Don José — presentaciones 1 kg y 5 kg" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: 1 kg · 5 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
           </div>
           <div class="catalog-info">
-            <h3 class="catalog-name">Arroz Largo</h3>
-            <p class="catalog-desc">Grano largo que queda suelto tras la cocción. Ideal para ensaladas de arroz, guarniciones y platos de influencia oriental. Ligero y versátil.</p>
-            <div class="catalog-tags"><span class="tag">Grano suelto</span><span class="tag">Ensaladas</span><span class="tag">1 kg</span></div>
+            <h3 class="catalog-name">Arroz Vaporizado</h3>
+            <p class="catalog-desc">Arroz parboiled: grano más firme y suelto tras la cocción. Indicado para preparaciones donde se busca menos pastosidad.</p>
+            <div class="catalog-tags"><span class="tag">Parboiled</span><span class="tag">Grano firme</span></div>
           </div>
         </article>
 
-        <article class="catalog-card fade-in" data-category="seleccion arroces" data-delay="160">
-          <a href="productos/arroz-integral.html" class="card-full-link" aria-label="Ver Arroz Integral"></a>
-          <div class="catalog-img-wrap">
-            <img src="assets/img/productos/product-arroz-integral.png" alt="Arroz Integral Natural Don José envasado 1 kg" loading="lazy">
-            <div class="prod-overlay"><span class="prod-overlay-label">🌾 Natural · 1 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO ECOLÓGICO -->
+  <section class="section section-white" id="ecologicos-section">
+    <div class="container">
+      <h2 class="catalog-group-title fade-in" data-category="ecologicos">Ecológicos</h2>
+      <div class="catalog-grid">
+
+        <article class="catalog-card fade-in" data-tags="legumbres ecologico garbanzos" data-delay="0">
+          <a href="productos/eco-garbanzo-castellano.html" class="card-full-link" aria-label="Ver Garbanzo castellano"></a>
+          <div class="catalog-img-wrap catalog-img-wrap--ecologico">
+            <img src="assets/img/productos/ecologicos/garbanzo-castellano-ecologico-card-premium.webp" alt="Garbanzo castellano Don José en agricultura ecológica — presentaciones 500 g y 5 kg" loading="lazy">
+            <img src="assets/img/badge-ecologico.svg" class="catalog-cert-badge" width="54" height="54" alt="" aria-hidden="true" decoding="async">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: 500 g · 5 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
           </div>
           <div class="catalog-info">
-            <h3 class="catalog-name">Arroz Integral</h3>
-            <p class="catalog-desc">Con todo el salvado intacto. Más fibra, más minerales y un sabor más profundo y natural. La opción más nutritiva de nuestra gama.</p>
-            <div class="catalog-tags"><span class="tag">⭐ Natural</span><span class="tag">Alto en fibra</span><span class="tag">1 kg</span></div>
+            <h3 class="catalog-name">Garbanzo castellano</h3>
+            <p class="catalog-desc">Legumbre universal en versión bio: hummus, cocidos y guisos con cultivo certificado.</p>
+            <div class="catalog-tags"><span class="tag">Versátil</span><span class="tag">Certificado UE</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres ecologico" data-delay="40">
+          <a href="productos/eco-frijol-negro.html" class="card-full-link" aria-label="Ver Frijol negro"></a>
+          <div class="catalog-img-wrap catalog-img-wrap--ecologico">
+            <img src="assets/img/productos/ecologicos/frijol-negro-ecologico-card-premium.webp" alt="Frijol negro Don José en agricultura ecológica — presentaciones 500 g y 5 kg" loading="lazy">
+            <img src="assets/img/badge-ecologico.svg" class="catalog-cert-badge" width="54" height="54" alt="" aria-hidden="true" decoding="async">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: 500 g · 5 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Frijol negro</h3>
+            <p class="catalog-desc">Textura cremosa y sabor profundo; ideal en arroz con frijoles, sopas y guisos.</p>
+            <div class="catalog-tags"><span class="tag">Cremoso</span><span class="tag">Guisos y arroces</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres ecologico lentejas" data-delay="80">
+          <a href="productos/eco-lenteja-eston.html" class="card-full-link" aria-label="Ver Lenteja Estón"></a>
+          <div class="catalog-img-wrap catalog-img-wrap--ecologico">
+            <img src="assets/img/productos/ecologicos/lenteja-eston-ecologica-card-premium.webp" alt="Lenteja Estón Don José en agricultura ecológica — presentaciones 500 g y 5 kg" loading="lazy">
+            <img src="assets/img/badge-ecologico.svg" class="catalog-cert-badge" width="54" height="54" alt="" aria-hidden="true" decoding="async">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: 500 g · 5 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Lenteja Estón</h3>
+            <p class="catalog-desc">Grano verdoso, buen comportamiento en cocción; legumbre bio para guisos y ensaladas.</p>
+            <div class="catalog-tags"><span class="tag">Estón</span><span class="tag">Ensaladas y guisos</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres ecologico lentejas" data-delay="120">
+          <a href="productos/eco-lenteja-pardina.html" class="card-full-link" aria-label="Ver Lenteja Pardina"></a>
+          <div class="catalog-img-wrap catalog-img-wrap--ecologico">
+            <img src="assets/img/productos/ecologicos/lenteja-pardina-ecologica-card-premium.webp" alt="Lenteja Pardina Don José en agricultura ecológica — presentaciones 500 g y 5 kg" loading="lazy">
+            <img src="assets/img/badge-ecologico.svg" class="catalog-cert-badge" width="54" height="54" alt="" aria-hidden="true" decoding="async">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: 500 g · 5 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Lenteja Pardina</h3>
+            <p class="catalog-desc">La Pardina de siempre en producción certificada: intenso y firme en el caldero.</p>
+            <div class="catalog-tags"><span class="tag">Mediterránea</span><span class="tag">Sabor intenso</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres ecologico lentejas" data-delay="160">
+          <a href="productos/eco-lenteja-castellana.html" class="card-full-link" aria-label="Ver Lenteja Castellana"></a>
+          <div class="catalog-img-wrap catalog-img-wrap--ecologico">
+            <img src="assets/img/productos/ecologicos/lenteja-castellana-ecologica-card-premium.webp" alt="Lenteja Castellana Don José en agricultura ecológica — presentaciones 500 g y 5 kg" loading="lazy">
+            <img src="assets/img/badge-ecologico.svg" class="catalog-cert-badge" width="54" height="54" alt="" aria-hidden="true" decoding="async">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: 500 g · 5 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Lenteja Castellana</h3>
+            <p class="catalog-desc">Tradición castellana con sello ecológico: suave, textura fina y guisos elegantes.</p>
+            <div class="catalog-tags"><span class="tag">Castilla</span><span class="tag">Textura fina</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres ecologico lentejas" data-delay="200">
+          <a href="productos/eco-lenteja-roja.html" class="card-full-link" aria-label="Ver Lenteja Roja"></a>
+          <div class="catalog-img-wrap catalog-img-wrap--ecologico">
+            <img src="assets/img/productos/ecologicos/lenteja-roja-ecologica-card-premium.webp" alt="Lenteja Roja Don José en agricultura ecológica — presentaciones 500 g y 5 kg" loading="lazy">
+            <img src="assets/img/badge-ecologico.svg" class="catalog-cert-badge" width="54" height="54" alt="" aria-hidden="true" decoding="async">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: 500 g · 5 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Lenteja Roja</h3>
+            <p class="catalog-desc">Cocción ágil y textura melosa; purés, cremas y platos de cuchara en versión bio.</p>
+            <div class="catalog-tags"><span class="tag">Rápida</span><span class="tag">Purés y cremas</span></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO CONSERVA -->
+  <section class="section section-soft" id="conserva-section">
+    <div class="container">
+      <h2 class="catalog-group-title fade-in" data-category="conserva">Conserva</h2>
+      <div class="catalog-grid">
+
+        <!-- 6 conservas en lata (primero) -->
+        <article class="catalog-card fade-in" data-tags="legumbres conserva alubias" data-delay="0">
+          <a href="productos/conserva-alubias-rojas-cocidas.html" class="card-full-link" aria-label="Ver Alubias rojas cocidas"></a>
+          <div class="catalog-img-wrap">
+            <img src="assets/img/productos/conservas/alubias-rojas-cocidas-lata.webp" alt="Alubias rojas cocidas Don José en lata — 500 g · 1 kg · 3 kg" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: lata 500 g · 1 kg · 3 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Alubias rojas cocidas</h3>
+            <div class="catalog-tags"><span class="tag">Lata</span><span class="tag">Listas al uso</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres conserva ecologico alubias" data-delay="40">
+          <a href="productos/conserva-alubias-rojas-cocidas-organicas.html" class="card-full-link" aria-label="Ver Alubias rojas cocidas orgánicas"></a>
+          <div class="catalog-img-wrap catalog-img-wrap--organico">
+            <img src="assets/img/productos/conservas/alubias-rojas-cocidas-organicas-lata.webp" alt="Alubias rojas cocidas orgánicas Don José en lata — 500 g · 1 kg · 3 kg" loading="lazy">
+            <img src="assets/img/badge-organico.svg" class="catalog-cert-badge" width="54" height="54" alt="" aria-hidden="true" decoding="async">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: lata 500 g · 1 kg · 3 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Alubias rojas cocidas orgánicas</h3>
+            <div class="catalog-tags"><span class="tag">Lata</span><span class="tag">Orgánico</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres conserva lentejas" data-delay="80">
+          <a href="productos/conserva-lentejas-cocidas-lata.html" class="card-full-link" aria-label="Ver Lentejas cocidas"></a>
+          <div class="catalog-img-wrap">
+            <img src="assets/img/productos/conservas/lentejas-cocidas-lata.webp" alt="Lentejas cocidas Don José — 500 g · 1 kg · 3 kg" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: lata 500 g · 1 kg · 3 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Lentejas cocidas</h3>
+            <div class="catalog-tags"><span class="tag">Lata</span><span class="tag">Listas al uso</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres conserva ecologico lentejas" data-delay="120">
+          <a href="productos/conserva-lentejas-cocidas-organicas-lata.html" class="card-full-link" aria-label="Ver Lentejas cocidas orgánicas"></a>
+          <div class="catalog-img-wrap catalog-img-wrap--organico">
+            <img src="assets/img/productos/conservas/lentejas-cocidas-organicas-lata.webp" alt="Lentejas cocidas orgánicas Don José — 500 g · 1 kg · 3 kg" loading="lazy">
+            <img src="assets/img/badge-organico.svg" class="catalog-cert-badge" width="54" height="54" alt="" aria-hidden="true" decoding="async">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: lata 500 g · 1 kg · 3 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Lentejas cocidas orgánicas</h3>
+            <div class="catalog-tags"><span class="tag">🌿 Orgánico</span><span class="tag">Lata</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres conserva garbanzos" data-delay="160">
+          <a href="productos/conserva-garbanzos-cocidos-lata.html" class="card-full-link" aria-label="Ver Garbanzos cocidos"></a>
+          <div class="catalog-img-wrap">
+            <img src="assets/img/productos/conservas/garbanzos-cocidos-lata.webp" alt="Garbanzos cocidos Don José — 500 g · 1 kg · 3 kg" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: lata 500 g · 1 kg · 3 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Garbanzos cocidos</h3>
+            <div class="catalog-tags"><span class="tag">Lata</span><span class="tag">Listos al uso</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres conserva ecologico garbanzos" data-delay="200">
+          <a href="productos/conserva-garbanzos-cocidos-organicos-lata.html" class="card-full-link" aria-label="Ver Garbanzos cocidos orgánicos"></a>
+          <div class="catalog-img-wrap catalog-img-wrap--organico">
+            <img src="assets/img/productos/conservas/garbanzos-cocidos-organicos-lata.webp" alt="Garbanzos cocidos orgánicos Don José — 500 g · 1 kg · 3 kg" loading="lazy">
+            <img src="assets/img/badge-organico.svg" class="catalog-cert-badge" width="54" height="54" alt="" aria-hidden="true" decoding="async">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: lata 500 g · 1 kg · 3 kg</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Garbanzos cocidos orgánicos</h3>
+            <div class="catalog-tags"><span class="tag">🌿 Orgánico</span><span class="tag">Lata</span></div>
+          </div>
+        </article>
+
+        <!-- 10 conservas en frasco -->
+        <article class="catalog-card fade-in" data-tags="legumbres conserva garbanzos" data-delay="240">
+          <a href="productos/conserva-garbanzos-cocidos.html" class="card-full-link" aria-label="Ver Garbanzos cocidos"></a>
+          <div class="catalog-img-wrap">
+            <img src="assets/img/productos/conservas/garbanzos-cocidos-frasco.webp" alt="Garbanzos cocidos Don José — frasco 580 ml" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: frasco 580 ml</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Garbanzos cocidos</h3>
+            <div class="catalog-tags"><span class="tag">Frasco</span><span class="tag">Listos al uso</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres conserva ecologico garbanzos" data-delay="280">
+          <a href="productos/conserva-garbanzos-cocidos-organicos.html" class="card-full-link" aria-label="Ver Garbanzos cocidos orgánicos"></a>
+          <div class="catalog-img-wrap catalog-img-wrap--organico">
+            <img src="assets/img/productos/conservas/garbanzos-cocidos-organicos-frasco.webp" alt="Garbanzos cocidos orgánicos Don José — frasco 370 ml y 580 ml" loading="lazy">
+            <img src="assets/img/badge-organico.svg" class="catalog-cert-badge" width="54" height="54" alt="" aria-hidden="true" decoding="async">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: frasco 370 ml · 580 ml</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Garbanzos cocidos orgánicos</h3>
+            <div class="catalog-tags"><span class="tag">🌿 Orgánico</span><span class="tag">Frasco</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres conserva lentejas" data-delay="320">
+          <a href="productos/conserva-lentejas-cocidas.html" class="card-full-link" aria-label="Ver Lentejas cocidas"></a>
+          <div class="catalog-img-wrap">
+            <img src="assets/img/productos/conservas/lentejas-cocidas-frasco.webp" alt="Lentejas cocidas Don José — frasco 580 ml" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: frasco 580 ml</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Lentejas cocidas</h3>
+            <div class="catalog-tags"><span class="tag">Frasco</span><span class="tag">Listas al uso</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres conserva ecologico lentejas" data-delay="360">
+          <a href="productos/conserva-lentejas-cocidas-organicas.html" class="card-full-link" aria-label="Ver Lentejas cocidas orgánicas"></a>
+          <div class="catalog-img-wrap catalog-img-wrap--organico">
+            <img src="assets/img/productos/conservas/lentejas-cocidas-organicas-frasco.webp" alt="Lentejas cocidas orgánicas Don José — frasco 370 ml y 580 ml" loading="lazy">
+            <img src="assets/img/badge-organico.svg" class="catalog-cert-badge" width="54" height="54" alt="" aria-hidden="true" decoding="async">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: frasco 370 ml · 580 ml</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Lentejas cocidas orgánicas</h3>
+            <div class="catalog-tags"><span class="tag">🌿 Orgánico</span><span class="tag">Frasco</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres conserva alubias" data-delay="400">
+          <a href="productos/conserva-alubias-blancas-cocidas.html" class="card-full-link" aria-label="Ver Alubias blancas cocidas"></a>
+          <div class="catalog-img-wrap">
+            <img src="assets/img/productos/conservas/alubias-blancas-cocidas-frasco.webp" alt="Alubias blancas cocidas Don José — frasco 580 ml" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: frasco 580 ml</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Alubias blancas cocidas</h3>
+            <div class="catalog-tags"><span class="tag">Frasco</span><span class="tag">Listas al uso</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres conserva judiones" data-delay="440">
+          <a href="productos/conserva-judiones-cocidos.html" class="card-full-link" aria-label="Ver Judiones cocidos"></a>
+          <div class="catalog-img-wrap">
+            <img src="assets/img/productos/conservas/judiones-cocidos-frasco.webp" alt="Judiones cocidos Don José — frasco 580 ml" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: frasco 580 ml</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Judiones cocidos</h3>
+            <div class="catalog-tags"><span class="tag">Frasco</span><span class="tag">Listos al uso</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres conserva alubias" data-delay="480">
+          <a href="productos/conserva-alubias-rojas-cocidas-frasco.html" class="card-full-link" aria-label="Ver Alubias rojas cocidas"></a>
+          <div class="catalog-img-wrap">
+            <img src="assets/img/productos/conservas/alubias-rojas-cocidas-frasco.webp" alt="Alubias rojas cocidas Don José — frasco 580 ml" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: frasco 580 ml</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Alubias rojas cocidas</h3>
+            <div class="catalog-tags"><span class="tag">Frasco</span><span class="tag">Listas al uso</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres conserva ecologico alubias" data-delay="520">
+          <a href="productos/conserva-alubias-blancas-cocidas-organicas.html" class="card-full-link" aria-label="Ver Alubias blancas cocidas orgánicas"></a>
+          <div class="catalog-img-wrap catalog-img-wrap--organico">
+            <img src="assets/img/productos/conservas/alubias-blancas-cocidas-organicas-frasco.webp" alt="Alubias blancas cocidas orgánicas Don José — frasco 370 ml y 580 ml" loading="lazy">
+            <img src="assets/img/badge-organico.svg" class="catalog-cert-badge" width="54" height="54" alt="" aria-hidden="true" decoding="async">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: frasco 370 ml · 580 ml</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Alubias blancas cocidas orgánicas</h3>
+            <div class="catalog-tags"><span class="tag">🌿 Ecológico</span><span class="tag">Frasco</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres conserva alubias" data-delay="560">
+          <a href="productos/conserva-alubias-blancas-setas-shiitake.html" class="card-full-link" aria-label="Ver Alubias blancas con setas shiitake"></a>
+          <div class="catalog-img-wrap">
+            <img src="assets/img/productos/conservas/alubias-blancas-con-setas-shiitake-frasco.webp" alt="Alubias blancas con setas shiitake Don José — frasco 580 ml" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: frasco 580 ml</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Alubias blancas con setas shiitake</h3>
+            <div class="catalog-tags"><span class="tag">Frasco</span><span class="tag">Con setas</span></div>
+          </div>
+        </article>
+
+        <article class="catalog-card fade-in" data-tags="legumbres conserva garbanzos" data-delay="600">
+          <a href="productos/conserva-garbanzos-cocidos-trufa-negra.html" class="card-full-link" aria-label="Ver Garbanzos cocidos con trufa negra"></a>
+          <div class="catalog-img-wrap">
+            <img src="assets/img/productos/conservas/garbanzos-cocidos-con-trufa-negra-frasco.webp" alt="Garbanzos cocidos con trufa negra Don José — frasco 580 ml" loading="lazy">
+            <div class="prod-overlay"><span class="prod-overlay-label">Presentación: frasco 580 ml</span><span class="prod-overlay-btn">Ver producto <span class="prod-overlay-arrow">→</span></span></div>
+          </div>
+          <div class="catalog-info">
+            <h3 class="catalog-name">Garbanzos cocidos con trufa negra</h3>
+            <div class="catalog-tags"><span class="tag">Frasco</span><span class="tag">Con trufa</span></div>
           </div>
         </article>
 
@@ -289,9 +653,9 @@
           <span class="footer-brand-badge__text">Productos Don José — marca ABM Crops</span>
         </div>
         <nav class="footer-partner-links" aria-label="Webs del grupo">
-          <a href="#" class="footer-partner-link footer-partner-link--pending" title="Web en preparación — dominio por definir">Dmondo</a>
+          <a href="https://dmondofoods.com/" class="footer-partner-link" target="_blank" rel="noopener noreferrer">Dmondo</a>
           <span class="footer-partner-sep" aria-hidden="true">·</span>
-          <a href="#" class="footer-partner-link footer-partner-link--pending" title="Web en preparación — dominio por definir">ABM Crops</a>
+          <a href="https://abmcrops.com/" class="footer-partner-link" target="_blank" rel="noopener noreferrer">ABM Crops</a>
         </nav>
       </div>
       <div class="footer-col"><h4 class="footer-heading">Explorar</h4><ul class="footer-links"><li><a href="marca.html">La Marca</a></li><li><a href="productos.html">Productos</a></li><li><a href="recetas.html">Recetas</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>

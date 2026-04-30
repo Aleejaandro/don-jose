@@ -74,22 +74,69 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ---- Product filter (productos.html) ---- */
+  /* ---- Product filter (productos.html) — categoría + subtipo legumbres + líneas ---- */
   const productTabs = document.getElementById('filter-tabs');
+  const productLegumeSub = document.getElementById('filter-tabs-legumbres');
   if (productTabs) {
-    const buttons   = productTabs.querySelectorAll('.filter-btn');
-    const cards     = document.querySelectorAll('.catalog-card');
-    const sections  = document.querySelectorAll('#legumbres-section, #arroces-section');
+    const primaryButtons = productTabs.querySelectorAll('.filter-btn');
+    const subButtons     = productLegumeSub ? productLegumeSub.querySelectorAll('.filter-btn') : [];
+    const cards          = document.querySelectorAll('.catalog-card');
+    const sections       = document.querySelectorAll('#legumbres-section, #arroces-section, #ecologicos-section, #conserva-section');
 
-    const applyProductFilter = (filter) => {
-      buttons.forEach(b => {
-        const active = b.dataset.filter === filter;
+    const parseTags = (card) =>
+      (card.dataset.tags || card.dataset.category || '')
+        .trim()
+        .split(/\s+/)
+        .filter(Boolean);
+
+    let legumeSub = 'todas';
+
+    const setLegumeSubRow = (primary) => {
+      if (!productLegumeSub) return;
+      const show = primary === 'legumbres';
+      productLegumeSub.toggleAttribute('hidden', !show);
+      subButtons.forEach(b => {
+        const active = b.dataset.legumeSub === legumeSub;
         b.classList.toggle('active', active);
         b.setAttribute('aria-selected', active);
       });
+    };
+
+    const cardMatches = (tags, primary) => {
+      if (primary === 'todos') return true;
+      /* Legumbres secas: excluye línea ecológica y conserva (comparten tag legumbres por histórico) */
+      if (primary === 'legumbres') {
+        if (!tags.includes('legumbres')) return false;
+        if (tags.includes('conserva') || tags.includes('ecologico')) return false;
+        if (legumeSub === 'todas') return true;
+        if (legumeSub === 'alubias') return tags.includes('alubias');
+        if (legumeSub === 'lentejas') return tags.includes('lentejas');
+        if (legumeSub === 'garbanzos') return tags.includes('garbanzos');
+        return true;
+      }
+      if (primary === 'arroces') return tags.includes('arroces');
+      if (primary === 'ecologicos') {
+        return tags.includes('ecologico') && !tags.includes('conserva');
+      }
+      if (primary === 'conserva') return tags.includes('conserva');
+      return true;
+    };
+
+    const applyProductFilter = (primary, opts) => {
+      const resetSub = opts && opts.resetLegumeSub;
+      if (resetSub) legumeSub = 'todas';
+
+      primaryButtons.forEach(b => {
+        const active = b.dataset.filter === primary;
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-selected', active);
+      });
+
+      setLegumeSubRow(primary);
+
       cards.forEach(card => {
-        const cats = (card.dataset.category || '').split(' ');
-        card.classList.toggle('hidden', filter !== 'todos' && !cats.includes(filter));
+        const tags = parseTags(card);
+        card.classList.toggle('hidden', !cardMatches(tags, primary));
       });
       sections.forEach(section => {
         const visible = section.querySelectorAll('.catalog-card:not(.hidden)').length > 0;
@@ -99,8 +146,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     productTabs.addEventListener('click', e => {
       const btn = e.target.closest('.filter-btn');
-      if (btn) applyProductFilter(btn.dataset.filter);
+      if (!btn || btn.closest('#filter-tabs-legumbres')) return;
+      applyProductFilter(btn.dataset.filter, { resetLegumeSub: true });
     });
+
+    if (productLegumeSub) {
+      productLegumeSub.addEventListener('click', e => {
+        const btn = e.target.closest('.filter-btn');
+        if (!btn) return;
+        legumeSub = btn.dataset.legumeSub || 'todas';
+        applyProductFilter('legumbres', { resetLegumeSub: false });
+      });
+    }
+
+    const initial = productTabs.querySelector('.filter-btn.active') || primaryButtons[0];
+    applyProductFilter(initial ? initial.dataset.filter : 'todos', { resetLegumeSub: true });
   }
 
   /* ---- Recipe filter (recetas.html) ---- */

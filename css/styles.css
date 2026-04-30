@@ -30,6 +30,20 @@
 
   --transition: 0.3s ease;
   --container:  1200px;
+
+  /* Header fijo + migas (fichas producto, recetas detalle): altura coherente con .logo-img y .site-header.scrolled */
+  --header-logo-h: 96px;
+  --header-padding-y: 0.85rem;
+  --header-bar-height: calc(var(--header-logo-h) + (var(--header-padding-y) * 2));
+  --breadcrumb-under-header-gap: 1.25rem;
+  --main-breadcrumb-offset: calc(var(--header-bar-height) + var(--breadcrumb-under-header-gap));
+}
+
+@media (max-width: 640px) {
+  :root {
+    --header-logo-h: 76px;
+    --breadcrumb-under-header-gap: 1rem;
+  }
 }
 
 /* ---- Reset ---- */
@@ -514,6 +528,16 @@ ul { list-style: none; }
   border: 1px solid rgba(74,124,89,0.18);
   box-shadow: 0 1px 5px rgba(30, 45, 36, 0.06);
 }
+.home-showcase__actions {
+  margin-top: clamp(2.25rem, 5vw, 3.25rem);
+  padding-top: 0.35rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
 .home-showcase__pack {
   position: absolute;
   z-index: 3;
@@ -887,23 +911,28 @@ html[data-products-page-mode="catalog"] .products-page-mode__panel--editorial {
   aspect-ratio: 3/4;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  background: #f5f3ee;
+  background: linear-gradient(180deg, #f8f6f1 0%, #e9e5da 100%);
   box-shadow: var(--shadow-sm);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-.catalog-card:hover .catalog-img-wrap {
+.catalog-card:hover .catalog-img-wrap,
+.product-card:hover .catalog-img-wrap {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
 }
-.catalog-img-wrap img {
+/* Catálogo / destacados: mismo packshot en todas las tarjetas (excl. sello certificación) */
+.catalog-img-wrap img:not(.catalog-cert-badge) {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 1.5rem;
-  transition: transform 0.5s ease;
+  padding: 0;
+  transform: scale(1.12);
+  transform-origin: center center;
+  transition: transform 0.45s ease;
 }
-.catalog-card:hover .catalog-img-wrap img {
-  transform: scale(1.06);
+.catalog-card:hover .catalog-img-wrap img:not(.catalog-cert-badge),
+.product-card:hover .catalog-img-wrap img:not(.catalog-cert-badge) {
+  transform: scale(1.18);
 }
 
 /* ============================================================
@@ -1298,6 +1327,11 @@ html[data-products-page-mode="catalog"] .products-page-mode__panel--editorial {
 .breadcrumb a:hover { color: var(--color-primary); }
 .breadcrumb span[aria-current="page"] { color: var(--color-text); font-weight: 600; }
 
+/* Espacio bajo header fijo cuando la primera sección son migas (producto / receta detalle) */
+main:has(> .product-breadcrumb-wrap:first-child) {
+  padding-top: var(--main-breadcrumb-offset);
+}
+
 .page-hero-title {
   font-family: var(--font-serif);
   font-size: clamp(2.4rem, 6vw, 4.5rem);
@@ -1427,6 +1461,26 @@ html[data-products-page-mode="catalog"] .products-page-mode__panel--editorial {
   border-color: var(--color-primary);
   color: #fff;
 }
+.filter-tabs-sub {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+  padding-top: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--color-border);
+}
+.filter-tabs-sub[hidden] {
+  display: none !important;
+}
+.filter-sub-hint {
+  width: 100%;
+  flex-basis: 100%;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin: 0 0 0.35rem;
+}
 
 /* ============================================================
    CATALOG GRID (productos page)
@@ -1461,12 +1515,52 @@ html[data-products-page-mode="catalog"] .products-page-mode__panel--editorial {
   margin-bottom: 0.5rem;
   color: var(--color-text);
 }
+.catalog-img-wrap--ecologico .catalog-cert-badge,
+.catalog-img-wrap--organico .catalog-cert-badge,
+.product-img-frame--ecologico .product-cert-badge,
+.product-img-frame--organico .product-cert-badge {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  z-index: 3;
+  width: 3.35rem;
+  height: 3.35rem;
+  pointer-events: none;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.22));
+}
+
 .catalog-desc {
   font-size: 0.9rem;
   color: var(--color-muted);
   line-height: 1.65;
   margin-bottom: 1rem;
   text-align: justify;
+}
+
+/* Conserva: altura homogénea del bloque texto + etiquetas alineadas al pie de tarjeta */
+#conserva-section .catalog-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#conserva-section .catalog-img-wrap {
+  flex-shrink: 0;
+}
+#conserva-section .catalog-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+#conserva-section .catalog-desc {
+  flex-grow: 1;
+  min-height: calc(1.65em * 3);
+  margin-bottom: 0;
+}
+#conserva-section .catalog-tags {
+  margin-top: auto;
+  padding-top: 1rem;
 }
 .catalog-tags {
   display: flex;
@@ -1499,10 +1593,25 @@ html[data-products-page-mode="catalog"] .products-page-mode__panel--editorial {
   border-radius: var(--radius-xl);
 }
 
+/* Catálogo sin enlaces a fichas (js/site-config.js → productsCatalogDetailLinksEnabled) */
+html[data-products-catalog-detail-links="off"] .catalog-card .card-full-link,
+html[data-products-catalog-detail-links="off"] .product-card .card-full-link {
+  pointer-events: none;
+  cursor: default;
+}
+html[data-products-catalog-detail-links="off"] .catalog-card,
+html[data-products-catalog-detail-links="off"] .product-card {
+  cursor: default;
+}
+html[data-products-catalog-detail-links="off"] .prod-overlay-btn {
+  display: none !important;
+}
+
 /* Overlay that slides up from image bottom on hover */
 .prod-overlay {
   position: absolute;
   inset: auto 0 0 0;
+  z-index: 1;
   padding: 2rem 1.25rem 1.25rem;
   background: linear-gradient(to top, rgba(30,45,36,0.90) 0%, transparent 100%);
   transform: translateY(100%);
@@ -1552,8 +1661,35 @@ html[data-products-page-mode="catalog"] .products-page-mode__panel--editorial {
 .product-detail-section {
   padding-block: clamp(3rem, 6vw, 5rem);
 }
-.product-breadcrumb-wrap {
-  padding: calc(80px + 1.5rem) 0 0;
+/* Migas bajo header: aire respecto al logo + barra sticky solo en detalle (primer hijo de main) */
+main > .product-breadcrumb-wrap:first-child {
+  position: sticky;
+  top: var(--header-bar-height);
+  z-index: 90;
+  margin: 0 0 1rem;
+  padding: 0;
+  background: rgba(249, 247, 242, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+main > .product-breadcrumb-wrap:first-child .breadcrumb {
+  margin-bottom: 0;
+  padding-block: 0.65rem 0.85rem;
+  min-height: 2.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 0.35rem;
+  column-gap: 0.5rem;
+}
+main > .product-breadcrumb-wrap:first-child .breadcrumb a {
+  padding: 0.35rem 0.2rem;
+  border-radius: 0.25rem;
+}
+main > .product-breadcrumb-wrap:first-child .breadcrumb a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 .product-split {
   display: grid;
@@ -1569,10 +1705,27 @@ html[data-products-page-mode="catalog"] .products-page-mode__panel--editorial {
   background: #f0ede5;
   box-shadow: var(--shadow-md);
 }
-.product-img-frame img {
-  width: 100%; height: 100%;
+/* Ficha producto: packshot unificado (imagen dentro de .product-img-frame__inner) */
+.product-img-frame__inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1.12);
+  transform-origin: center center;
+}
+.product-img-frame__inner img {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  padding: 2rem;
+  padding: 0;
+  max-width: none;
+}
+@media (max-width: 768px) {
+  .product-img-frame__inner {
+    transform: scale(1.08);
+  }
 }
 .product-info-col {
   display: flex;
@@ -1661,9 +1814,6 @@ html[data-products-page-mode="catalog"] .products-page-mode__panel--editorial {
 
 /* Responsive: product detail */
 @media (max-width: 768px) {
-  .product-breadcrumb-wrap {
-    padding: calc(96px + 1.5rem) 0 0;
-  }
   .product-split { grid-template-columns: 1fr; }
   .product-img-frame { max-width: 360px; margin-inline: auto; }
   .product-feature-grid { grid-template-columns: 1fr; }
@@ -2352,10 +2502,6 @@ select.form-input {
   padding-bottom: clamp(2rem, 5vw, 3.5rem);
   overflow: hidden;
 }
-/* Recetas: compensación extra bajo header fijo para evitar solape con logo */
-body:has(.recipe-hero) .product-breadcrumb-wrap {
-  padding: calc(122px + 1.25rem) 0 0;
-}
 .recipe-hero-bg {
   position: absolute;
   inset: 0;
@@ -2728,9 +2874,6 @@ html[data-recipes-show-used-product="false"] .recipe-sidebar-card--product {
   .recipe-ingredients-list { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
-  body:has(.recipe-hero) .product-breadcrumb-wrap {
-    padding: calc(138px + 1.25rem) 0 0;
-  }
   .recipe-hero { min-height: 35vh; }
   .recipe-hero-title { max-width: none; }
   .recipe-related-grid { grid-template-columns: 1fr; }

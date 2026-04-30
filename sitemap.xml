@@ -27,7 +27,17 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://productosdonjose.es/productos/alubia-arrocina.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://productosdonjose.es/productos/alubia-blanca.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/alubia-fabada-asturiana.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -37,12 +47,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://productosdonjose.es/productos/arroz-integral.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://productosdonjose.es/productos/arroz-largo.html</loc>
+    <loc>https://productosdonjose.es/productos/alubia-roja.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -52,7 +57,127 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://productosdonjose.es/productos/garbanzo-extra.html</loc>
+    <loc>https://productosdonjose.es/productos/arroz-vaporizado.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/eco-frijol-negro.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/eco-garbanzo-castellano.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/eco-lenteja-castellana.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/eco-lenteja-eston.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/eco-lenteja-pardina.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/eco-lenteja-roja.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/conserva-garbanzos-cocidos-organicos.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/conserva-garbanzos-cocidos.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/conserva-lentejas-cocidas-organicas.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/conserva-lentejas-cocidas.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/conserva-alubias-rojas-cocidas-organicas.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/conserva-alubias-rojas-cocidas.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/conserva-garbanzos-cocidos-lata.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/conserva-garbanzos-cocidos-organicos-lata.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/conserva-lentejas-cocidas-lata.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/conserva-lentejas-cocidas-organicas-lata.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/conserva-alubias-blancas-cocidas.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/conserva-alubias-blancas-cocidas-organicas.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/conserva-alubias-blancas-setas-shiitake.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/conserva-alubias-rojas-cocidas-frasco.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/conserva-garbanzos-cocidos-trufa-negra.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/conserva-judiones-cocidos.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/garbanzo-castellano.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/garbanzo-lechoso.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -62,12 +187,17 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://productosdonjose.es/productos/lenteja-beluga.html</loc>
+    <loc>https://productosdonjose.es/productos/lenteja-castellana.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://productosdonjose.es/productos/lenteja-pardina.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://productosdonjose.es/productos/lenteja-roja.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
